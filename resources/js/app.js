@@ -7,7 +7,7 @@ import '@mdi/font/css/materialdesignicons.css';
 import { aliases, mdi } from 'vuetify/iconsets/mdi'; // Import icon sets if needed
 import * as components from 'vuetify/components';
 import * as directives from 'vuetify/directives';
-
+import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist';
 const vuetify = createVuetify({
   components,
   directives,
@@ -28,6 +28,7 @@ createInertiaApp({
   },
   setup({ el, App, props, plugin }) {
     createApp({ render: () => h(App, props) })
+      .use(ZiggyVue)
       .use(vuetify)
       .use(plugin)
       .mount(el)

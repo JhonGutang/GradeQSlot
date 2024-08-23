@@ -1,8 +1,8 @@
 <template>
     <RegistrationLayout title="Register">
         <v-sheet height="280" class="overflow-y-scroll mb-5" >
+          <v-text-field label="Student ID" type="number" color="primary" hide-spin-buttons></v-text-field>
             <v-text-field label="Name" type="text" color="primary"></v-text-field>
-            <v-text-field label="Username" type="text" color="primary"></v-text-field>
             <v-text-field label="Email" type="email" color="primary"></v-text-field>
             <v-select
             label="Gender"
@@ -25,7 +25,7 @@
         <div class="d-flex text-center justify-center mt-2">
           <h5 class="me-1">Already Have An Account?</h5>
           <Link
-            href="/auth/login"
+            :href="route('login')"
             class="text-decoration-none font-weight-bold text-body-2 text-light-blue-darken-4"
             >Login Now</Link
           >

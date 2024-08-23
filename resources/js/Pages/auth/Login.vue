@@ -44,7 +44,7 @@ import { Head, Link } from '@inertiajs/vue3';
 
  <template>
   <AuthLayout title="Login">
-    <v-text-field label="Username" color="primary"></v-text-field>
+    <v-text-field label="Student Id" type="number" color="primary" hide-spin-buttons></v-text-field>
     <v-text-field
       label="Password"
       type="password"
@@ -55,11 +55,11 @@ import { Head, Link } from '@inertiajs/vue3';
         >Forget Password</Link
       >
     </v-sheet>
-    <v-btn class="bg-primary" width="100%" height="50" href="../client/dashboard">Login</v-btn>
+    <v-btn class="bg-primary" width="100%" height="50" :href="route('client.dashboard')">Login</v-btn>
     <div class="d-flex text-center justify-center mt-2">
       <h5 class="me-1">Don't have Any Account?</h5>
       <Link
-        href="/auth/register"
+        :href="route('register')"
         class="text-decoration-none font-weight-bold text-body-2 text-light-blue-darken-4"
         >Register Now</Link
       >
