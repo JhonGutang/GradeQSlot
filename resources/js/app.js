@@ -21,7 +21,7 @@ const vuetify = createVuetify({
 });
 
 createInertiaApp({
-  title: (title) => `GradeQSlot |   ${title}`,
+  title: (title) => `${title} | GradeQSlot`,
   resolve: name => {
     const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
     return pages[`./Pages/${name}.vue`]
