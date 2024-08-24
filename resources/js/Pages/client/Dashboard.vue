@@ -11,7 +11,7 @@ import { Head, Link } from '@inertiajs/vue3';
             <v-divider></v-divider>
             <v-list-item link title="List Item 1"></v-list-item>
             <v-list-item link title="List Item 2"></v-list-item>
-            <Link :href="route('login')" > Logout</Link>
+            <Link :href="route('login')" class="text-decoration-none text-4xl"> Logout</Link>
           </v-navigation-drawer>
       </v-layout>
     </v-card>
