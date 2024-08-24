@@ -4,11 +4,11 @@
     <v-row align="center" justify="center" class="fill-height flex-wrap">
       <v-sheet
         width="950"
-        height="550"
+        height="570"
         class="d-flex flex-row rounded-lg"
-        border="md"
+        style="border: 2px solid #1867C0"
       >
-        <v-col class="bg-primary rounded">
+        <v-col class="bg-primary ">
           <v-sheet
             color="transparent"
             align="center"
@@ -22,9 +22,9 @@
           <h1 class="text-center">{{ title }}</h1>
 
           <v-card flat class="mt-10 mx-auto" width="380">
-            <v-form>
+            
               <slot> </slot>
-            </v-form>
+            
           </v-card>
         </v-col>
       </v-sheet>
@@ -38,6 +38,8 @@ import { Head } from "@inertiajs/vue3";
 defineProps({
   title: String,
 });
+
+
 </script>
   
   
