@@ -30,7 +30,7 @@
         >Login</v-btn
       >
       <div class="d-flex text-center justify-center mt-2">
-        <h5 class="me-1">Don't have Any Account?</h5>
+        <h5 class="me-1 text-body-2">Don't have Any Account?</h5>
         <Link
           :href="route('register')"
           class="text-decoration-none font-weight-bold text-body-2 text-light-blue-darken-4"

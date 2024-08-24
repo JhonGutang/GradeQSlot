@@ -19,7 +19,7 @@
           </v-sheet>
         </v-col>
         <v-col class="pt-15">
-          <h1 class="text-center">{{ title }}</h1>
+          <h1 class="text-center text-3xl font-weight-bold">{{ title }}</h1>
 
           <v-card flat class="mt-10 mx-auto" width="380">
             
