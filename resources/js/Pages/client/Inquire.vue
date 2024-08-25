@@ -1,10 +1,10 @@
 <script setup>
-  import Sidebar from '../../Components/Sidebar.vue';
+import ClientPageLayout from '../../Layouts/ClientPageLayout.vue';
 </script>
 
 <template>
     <Head title="Inquire"/>
-  <Sidebar>
+  <ClientPageLayout>
       <h1>This is Inquire</h1>
-  </Sidebar>
+  </ClientPageLayout>
 </template>

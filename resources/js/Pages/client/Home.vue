@@ -1,11 +1,10 @@
 <script setup>
-
-import Sidebar from '../../Components/Sidebar.vue'
+import ClientPageLayout from '../../Layouts/ClientPageLayout.vue';
 </script>
 
 <template>
     <Head title="Home"/>
-    <Sidebar>
-        <h1>This is Home</h1>
-    </Sidebar>
+    <ClientPageLayout>
+        <h1>This is Homepage</h1>
+    </ClientPageLayout>
 </template>

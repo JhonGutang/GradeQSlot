@@ -1,10 +1,41 @@
 <script setup>
-  import Sidebar from '../../Components/Sidebar.vue';
+import ClientPageLayout from '../../Layouts/ClientPageLayout.vue';
+
+  const props = defineProps({
+    courses: Object
+  })
+
+  console.log(props.courses)
 </script>
 
 <template>
     <Head title="Prospectus"/>
-  <Sidebar>
-      <h1>This is Prospectus Page</h1>
-  </Sidebar>
+  <ClientPageLayout>
+    <v-table>
+      <thead>
+        <tr>
+          <th class="text-left">  
+            Course Code
+          </th>
+          <th class="text-left">
+            Course Name
+          </th>
+          <th class="text-left">
+            Year Available
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          v-for="course in props.courses"
+          :key="course.id"
+        >
+          <td>{{ course.course_code }}</td>
+          <td>{{ course.course_name }}</td>
+          <td>{{ course.year_level }}</td>
+        </tr>
+      </tbody>
+    </v-table>  
+  </ClientPageLayout>
 </template>
+
