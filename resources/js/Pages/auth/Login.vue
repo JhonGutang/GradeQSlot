@@ -1,19 +1,41 @@
 
+<script setup>
+import { Link, useForm } from "@inertiajs/vue3";
+import AuthLayout from "../../Layouts/AuthRegistrationLayout.vue";
+
+const form = useForm({
+    studentId: null,
+    password: null,
+})
+
+
+const onLogin = () => {
+  form.post(route('login'))
+  onError: () => form.reset('password')
+} 
+
+</script>
 
  <template>
   <AuthLayout title="Login">
-    <v-form>
+    <v-form @submit.prevent="onLogin">
       <v-text-field
         label="Student Id"
         type="number"
         color="primary"
+        class="mb-2"
         hide-spin-buttons
+        :error="!!form.errors.studentId"
+        :error-messages="form.errors.studentId ? [form.errors.studentId] : []"
       ></v-text-field>
 
       <v-text-field
         label="Password"
         type="password"
         color="primary"
+        class="mb-2"
+         :error="!!form.errors.password"
+        :error-messages="form.errors.password ? [form.errors.password] : []"
       ></v-text-field>
       <v-sheet align="end" class="mb-10">
         <Link
@@ -26,7 +48,7 @@
         class="bg-primary"
         width="100%"
         height="50"
-        :href="route('client.dashboard')"
+        type="submit"
         >Login</v-btn
       >
       <div class="d-flex text-center justify-center mt-2">
@@ -40,8 +62,3 @@
     </v-form>
   </AuthLayout>
 </template>
-
- <script setup>
-import { Link } from "@inertiajs/vue3";
-import AuthLayout from "../../Layouts/Auth_Registration_Layout.vue";
-</script>

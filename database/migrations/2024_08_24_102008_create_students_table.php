@@ -13,10 +13,10 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('students', function (Blueprint $table) {
-            $table->id('student_id'); // Student ID as primary key
+            $table->string('student_id')->primary(); // Use string if storing like '12203091'
             $table->string('name');
             $table->string('email')->unique();
-            $table->enum('gender', ['male', 'female', 'other']);
+            $table->string('gender');
             $table->string('password');
             $table->timestamps();
         });

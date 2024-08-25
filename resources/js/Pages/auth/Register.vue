@@ -1,9 +1,9 @@
 <script setup>
 import { Link, router, useForm } from "@inertiajs/vue3";
-import RegistrationLayout from "../../Layouts/Auth_Registration_Layout.vue";
+import RegistrationLayout from "../../Layouts/AuthRegistrationLayout.vue";
 
 const form = useForm({
-  studentId: null,
+  student_id: null,
   name: null,
   gender: null,
   email: null,
@@ -12,8 +12,8 @@ const form = useForm({
 })
 
 
-const submit = () => {
-  form.post('/auth/register')
+const onRegister = () => {
+  form.post(route('register'))
   onError: () => form.reset("password", "passwordConfirmation")
 }
 </script>
@@ -21,31 +21,54 @@ const submit = () => {
 
 <template>
   <RegistrationLayout title="Register">
-    <v-form @submit.prevent="submit">
+    <v-form @submit.prevent="onRegister">
       <v-sheet height="280" class="overflow-y-scroll mb-5">
         <v-text-field
-        v-model="form.studentId"
+        v-model="form.student_id"
           label="Student ID"
           type="number"
           color="primary"
           hide-spin-buttons
+          class="mb-3"
+          :error="!!form.errors.student_id"
+          :error-messages="form.errors.student_id ? [form.errors.student_id] : []"
         ></v-text-field>
-        <small class="text-red-darken-4 error">{{form.errors.studentId}}</small>
         
-        <v-text-field v-model="form.name" label="Name" type="text" color="primary" ></v-text-field>
-        <small class="text-red-darken-4 error">{{form.errors.name}}</small>
         
-        <v-text-field v-model="form.email" label="Email" type="email" color="primary"></v-text-field>
-        <small class="text-red-darken-4 error">{{form.errors.email}}</small>
+        <v-text-field 
+        v-model="form.name" 
+        label="Name" 
+        type="text" 
+        color="primary"
+        class="mb-3" 
+        :error="!!form.errors.name"
+        :error-messages="form.errors.name ? [form.errors.name] : []"
+        ></v-text-field>
+
+        
+        <v-text-field 
+        v-model="form.email" 
+        label="Email" 
+        type="email" 
+        color="primary"
+        class="mb-3"
+        :error="!!form.errors.email"
+        :error-messages="form.errors.email ? [form.errors.email] : []"
+        >
+      </v-text-field>
+ 
         
         <v-select
         v-model="form.gender"
         label="Gender"
         :items="['Male', 'Female']"
         color="primary"
+        class="mb-3"
         outlined
+        :error="!!form.errors.gender"
+        :error-messages="form.errors.gender ? [form.errors.gender] : []"
         ></v-select>
-        <small class="text-red-darken-4 error">{{form.errors.gender}}</small>
+
         
         
         <v-text-field
@@ -53,8 +76,11 @@ const submit = () => {
         label="Password"
         type="password"
         color="primary"
+        class="mb-3"
+        :error="!!form.errors.password"
+        :error-messages="form.errors.password ? [form.errors.password] : []"
         ></v-text-field>
-        <small class="text-red-darken-4 error">{{form.errors.password}}</small>
+        
 
         <v-text-field
         v-model="form.password_confirmation"
@@ -75,10 +101,3 @@ const submit = () => {
     </v-form>
   </RegistrationLayout>
 </template>
-
-<style scoped>
-  .error {
-    position: relative;
-    top: -20px;
-  }
-</style>

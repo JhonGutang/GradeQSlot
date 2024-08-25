@@ -1,6 +1,6 @@
 import "./bootstrap";
 import { createApp, h } from 'vue'
-import { createInertiaApp } from '@inertiajs/vue3'
+import { createInertiaApp, Head, Link } from '@inertiajs/vue3'
 import { createVuetify } from 'vuetify';
 import 'vuetify/styles'; // Ensure Vuetify styles are imported
 import '@mdi/font/css/materialdesignicons.css';
@@ -8,6 +8,8 @@ import { aliases, mdi } from 'vuetify/iconsets/mdi'; // Import icon sets if need
 import * as components from 'vuetify/components';
 import * as directives from 'vuetify/directives';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist';
+
+
 const vuetify = createVuetify({
   components,
   directives,
@@ -31,6 +33,8 @@ createInertiaApp({
       .use(ZiggyVue)
       .use(vuetify)
       .use(plugin)
+      .component('Head', Head)
+      .component('Link', Link)
       .mount(el)
   },
 })

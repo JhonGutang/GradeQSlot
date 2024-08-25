@@ -1,9 +1,11 @@
 <script setup>
-    import {Link, Head} from "@inertiajs/vue3"
+
+import Sidebar from '../../Components/Sidebar.vue'
 </script>
 
 <template>
     <Head title="Home"/>
-    <h1>This is Client Home</h1>
+    <Sidebar>
+        <h1>This is Home</h1>
+    </Sidebar>
 </template>
-
