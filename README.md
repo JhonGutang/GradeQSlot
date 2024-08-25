@@ -17,7 +17,7 @@ A brief description of your project, its purpose, and any key features.
 
 ## Installation
 
-Follow these steps to set up and run the project locally.
+Follow these steps after cloning to set up and run the project locally.
 
 ### Backend Setup
 
