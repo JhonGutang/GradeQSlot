@@ -7,21 +7,27 @@ use App\Http\Controllers\CoursesController;
 use App\Models\Course;
 use Inertia\Inertia;
 
+// Home
 Route::inertia('/', 'Homes');
 
-// Auth
-Route::inertia('/auth/login', 'auth/Login')->name('login');
-Route::inertia('/auth/register', 'auth/Register')->name('register');
-Route::post('/auth/register', [AuthController::class, 'register']);
-Route::post('/auth/login', [AuthController::class, 'login']);
+// Auth routes
+Route::middleware('guest')->group(function () {
+    Route::inertia('/auth/login', 'auth/Login')->name('login');
+    Route::inertia('/auth/register', 'auth/Register')->name('register');
 
-// Client
-Route::inertia('/client', 'client/Home')->name('client.home');
-Route::inertia('/client/home', 'client/Home')->name('client.home');
-Route::inertia('/client/landingPage', 'client/LandingPage')->name('client.landingPage');
-Route::inertia('/client/profile', 'client/Profile')->name('client.profile');
-Route::inertia('/client/prospectus', 'client/Prospectus', ['courses' => Course::paginate(8)])->name('client.prospectus');
-Route::inertia('/client/inquire', 'client/Inquire')->name('client.inquire');
+    Route::post('/auth/register', [AuthController::class, 'register']);
+    Route::post('/auth/login', [AuthController::class, 'login']);
+});
+
+// Client routes
+Route::middleware('auth')->group(function () {
+    Route::inertia('/client', 'client/Home')->name('client.home');
+    Route::inertia('/client/home', 'client/Home')->name('client.home');
+    Route::inertia('/client/landingPage', 'client/LandingPage')->name('client.landingPage');
+    Route::inertia('/client/profile', 'client/Profile')->name('client.profile');
+    Route::inertia('/client/prospectus', 'client.Prospectus', ['courses' => Course::paginate(8)])->name('client.prospectus');
+    Route::inertia('/client/inquire', 'client/Inquire')->name('client.inquire');
+    });
 
 Route::get('/test-courses', function() {
     return Course::all();

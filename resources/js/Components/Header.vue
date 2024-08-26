@@ -4,6 +4,12 @@
                 <v-col class=" d-flex align-center justify-center"> <!-- Using d-flex and flex classes -->
                     <h1 class="font-weight-bold text-2xl">GradeQSlot</h1>
                 </v-col>
+                <v-col cols="1" class="d-flex align-center justify-center">
+                    <v-btn flat>
+                      <v-icon class="text-h5">mdi-bell-outline</v-icon>
+                    </v-btn>
+                  </v-col>
+                  
             </v-row>
  
     </v-container>
