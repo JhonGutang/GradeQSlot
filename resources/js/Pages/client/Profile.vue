@@ -56,7 +56,7 @@ import ClientPageLayout from "../../Layouts/ClientPageLayout.vue";
                   <div>Cabitoonan Toledo City</div>
                 </v-col>
               </v-row>
-              <v-row>
+              <v-row class="mb-3">
                 <v-col cols="5" class="d-flex flex-row">
                   <div class="font-weight-bold me-4">Phone Number:</div>
                   <div>+639 996 6001 848</div>
@@ -67,14 +67,15 @@ import ClientPageLayout from "../../Layouts/ClientPageLayout.vue";
                 </v-col>
               </v-row>
 
+              <div class="font-weight-bold me-4 text-h6 mb-2">Bachelor of Science in Information Technology</div>
               <v-row>
                 <v-col cols="5" class="d-flex flex-row">
-                  <div class="font-weight-bold me-4">Phone Number:</div>
-                  <div>+639 996 6001 848</div>
+                  <div class="font-weight-bold me-4">Year Level:</div>
+                  <div>2nd Year</div>
                 </v-col>
                 <v-col class="d-flex flex-row">
-                  <div class="font-weight-bold me-4">Email:</div>
-                  <div>johnjaranjan@gmail.com</div>
+                  <div class="font-weight-bold me-4">Block:</div>
+                  <div>Block A</div>
                 </v-col>
               </v-row>
             </v-card-text>
