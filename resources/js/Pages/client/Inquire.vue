@@ -19,11 +19,11 @@ const handleDocumentChange = () => {
   <Head title="Inquire" />
   <ClientPageLayout>
     <v-container fluid height="100vh">
-      <div class="text-h5 font-weight-bold text-center">Inquire Documents</div>
       <v-row class="fill-height" justify="center">
         <v-col cols="12" md="auto">
           <v-sheet width="700">
             <v-form class="border pa-5">
+              <div class="text-h5 font-weight-bold text-center mb-10">Inquire Documents</div>
               <!-- Choose Document -->
               <div class="d-flex flex-row">
                 <div class="text-body-2 font-weight-bold me-5">Choose Document</div>

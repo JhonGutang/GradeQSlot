@@ -13,7 +13,7 @@ import { Link } from '@inertiajs/vue3';
                     </v-col>
                     
                 </v-row>
-                <v-row class=" d-flex flex-col">
+                <v-row class="d-flex flex-col">
                     <v-sheet class="bg-transparent pt-5" height="500" >
                         <v-col>
                             <Link :href="route('client.home')">
@@ -38,12 +38,18 @@ import { Link } from '@inertiajs/vue3';
                         </v-col>
                     </v-sheet>
                 </v-row>
-                <v-row>
+
+                <v-row class="d-flex flex-col">
                     <v-col>
                         <Link :href="route('login')">
-                            <v-list-item link class="mb-3 text-center text-h6">Logout</v-list-item>
+                            <v-list-item link class="text-h6">Logout</v-list-item>
                         </Link>
                     </v-col>
+                    <v-sheet class="bg-transparent pt-16">
+                        <v-col>
+                            <v-list-item link class="text-center text-red-accent-2" style="font-size: 12px">Report a problem?</v-list-item>
+                        </v-col>
+                    </v-sheet>
                 </v-row>
             </v-container>
             
