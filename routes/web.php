@@ -20,14 +20,14 @@ Route::middleware('guest')->group(function () {
 });
 
 // Client routes
-Route::middleware('auth')->group(function () {
+
     Route::inertia('/client', 'client/Home')->name('client.home');
     Route::inertia('/client/home', 'client/Home')->name('client.home');
     Route::inertia('/client/landingPage', 'client/LandingPage')->name('client.landingPage');
     Route::inertia('/client/profile', 'client/Profile')->name('client.profile');
-    Route::inertia('/client/prospectus', 'client.Prospectus', ['courses' => Course::paginate(8)])->name('client.prospectus');
+    Route::inertia('/client/prospectus', 'client/Prospectus', ['courses' => Course::paginate(8)])->name('client.prospectus');
     Route::inertia('/client/inquire', 'client/Inquire')->name('client.inquire');
-    });
+
 
 Route::get('/test-courses', function() {
     return Course::all();
@@ -35,4 +35,8 @@ Route::get('/test-courses', function() {
 
 
 // Admin
-Route::inertia('/admin/home', 'admin/Home');
+Route::inertia('/admin/home', 'admin/Home')->name('admin.home');
+Route::inertia('/admin', 'admin/Home')->name('admin.home');
+Route::inertia('/admin/studentInfo', 'admin/StudentInformation')->name('admin.studentInfo');
+Route::inertia('/admin/requests', 'admin/Requests')->name('admin.requests');
+

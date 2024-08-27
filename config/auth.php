@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'student' => [ // Add this section for student authentication
+            'driver' => 'session',
+            'provider' => 'students',
+        ],
     ],
 
     /*
@@ -63,6 +67,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
+        ],
+        'students' => [ // Add this section for student provider
+            'driver' => 'eloquent',
+            'model' => App\Models\Student::class, // Specify the Student model here
         ],
 
         // 'users' => [
@@ -94,6 +102,12 @@ return [
         'users' => [
             'provider' => 'users',
             'table' => env('AUTH_PASSWORD_RESET_TOKEN_TABLE', 'password_reset_tokens'),
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'students' => [ // Add this section for student password resets
+            'provider' => 'students',
+            'table' => 'student_password_reset_tokens', // Use a separate table for student resets
             'expire' => 60,
             'throttle' => 60,
         ],

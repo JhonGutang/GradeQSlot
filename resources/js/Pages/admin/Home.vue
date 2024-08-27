@@ -1,3 +1,10 @@
 <template>
-    <h1>This is Admin</h1>
+  <AdminPageLayout>
+    <h1>this is Admin Home</h1>
+  </AdminPageLayout>
 </template>
+
+<script setup>
+  import AdminPageLayout from '../../Layouts/AdminPageLayout.vue';
+
+</script>

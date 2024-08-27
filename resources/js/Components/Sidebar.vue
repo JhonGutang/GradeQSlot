@@ -1,11 +1,19 @@
 <script setup lang="ts">
 import { Link } from '@inertiajs/vue3';
+
+const props = defineProps({
+  navItems: {
+    type: Array,
+    required: true,
+  },
+  sidebarWidth: Number,
+});
 </script>
 
 <template> 
     <v-card>
       <v-layout>
-        <v-navigation-drawer :width="200" class="bg-indigo-darken-3">
+        <v-navigation-drawer :width="props.sidebarWidth" class="bg-indigo-darken-3">
             <v-container fluid>
                 <v-row>
                     <v-col>
@@ -14,29 +22,13 @@ import { Link } from '@inertiajs/vue3';
                     
                 </v-row>
                 <v-row class="d-flex flex-col">
-                    <v-sheet class="bg-transparent pt-5" height="500" >
-                        <v-col>
-                            <Link :href="route('client.home')">
-                                <v-list-item link class="" rounded title="Home"></v-list-item>
-                            </Link>
-                            
+                    <v-sheet class="bg-transparent pt-5" height="500">
+                        <v-col v-for="item in props.navItems" :key="item.title">
+                          <Link :href="item.route">
+                            <v-list-item link rounded :title="item.title"></v-list-item>
+                          </Link>
                         </v-col>
-                        <v-col>
-                            <Link :href="route('client.profile')">
-                                <v-list-item link class="" rounded title="Profile"></v-list-item>
-                            </Link>
-                        </v-col>
-                        <v-col>
-                            <Link :href="route('client.prospectus')">
-                                <v-list-item link class="" rounded title="Prospectus"></v-list-item>
-                            </Link>
-                        </v-col>
-                        <v-col>
-                            <Link :href="route('client.inquire')">
-                                <v-list-item link class="" rounded title="Inquire"></v-list-item>
-                            </Link>
-                        </v-col>
-                    </v-sheet>
+                      </v-sheet>
                 </v-row>
 
                 <v-row class="d-flex flex-col">

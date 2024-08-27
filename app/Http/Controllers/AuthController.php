@@ -34,24 +34,26 @@ class AuthController extends Controller
         ]);
     
         $student = Student::where('student_id', $fields['student_id'])->first();
-    
+
+        
         // Check if student exists and password matches
         if ($student && Hash::check($fields['password'], $student->password)) {
             // Create a session for the student
             Auth::login($student); // Make sure to log the student in
-    
+            
             // Regenerate session
             $request->session()->regenerate();
-    
+            
             // Redirect to intended page with user data
             return redirect()->intended('/client/home')
-                ->with('auth', [
-                    'student_id' => $student // Include user data here
-                ]);
+            ->with('auth', [
+                'student_id' => $student // Include user data here
+            ]);
         }
-    
-        return back()->withErrors([
-            'student_id' => 'The provided credentials do not match our records.',
-        ])->onlyInput('student_id');
+        
+        return dd($student);
+        // return back()->withErrors([
+        //     'student_id' => 'The provided credentials do not match our records.',
+        // ])->onlyInput('student_id');
     }
 }

@@ -36,9 +36,21 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request): array
     {
         return array_merge(parent::share($request), [
-            'auth.user' => fn () => $request->user()
-                ? $request->user()->only('student_id')
-                : null,
+            // Shared auth data for both users and students
+            'auth.user' => function () use ($request) {
+                // Check if the request is authenticated as a User
+                if ($request->user('web')) {
+                    return $request->user('web')->only('name', 'email');
+                }
+                
+                // Check if the request is authenticated as a Student
+                if ($request->user('student')) {
+                    return $request->user('student')->only('name', 'email', 'student_id');
+                }
+
+                // If no user is authenticated, return null
+                return null;
+            },
         ]);
     }
 }
