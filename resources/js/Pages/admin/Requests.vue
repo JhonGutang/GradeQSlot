@@ -1,4 +1,5 @@
 <template>
+  <Head title="Request" />
     <AdminPageLayout>
       <h1>this is Admin Requests</h1>
     </AdminPageLayout>
