@@ -13,13 +13,14 @@ use Inertia\Inertia;
 Route::inertia('/', 'Homes');
 
 // Auth routes
-Route::middleware('guest')->group(function () {
+
     Route::inertia('/auth/login', 'auth/Login')->name('login');
+    Route::inertia('/auth', 'auth/Login')->name('login');
     Route::inertia('/auth/register', 'auth/Register')->name('register');
 
-    Route::post('/auth/register', [AuthController::class, 'register']);
-    Route::post('/auth/login', [AuthController::class, 'login']);
-});
+    Route::post('/auth/register', [AuthController::class, 'registerStudent']);
+    Route::post('/auth/login', [AuthController::class, 'loginStudent']);
+
 
 // Client routes
 
@@ -27,20 +28,17 @@ Route::middleware('guest')->group(function () {
     Route::inertia('/client/home', 'client/Home')->name('client.home');
     Route::inertia('/client/landingPage', 'client/LandingPage')->name('client.landingPage');
     Route::inertia('/client/profile', 'client/Profile')->name('client.profile');
-    Route::inertia('/client/prospectus', 'client/Prospectus', ['courses' => Course::paginate(8)])->name('client.prospectus');
+    Route::get('/client/prospectus', [CoursesController::class, 'index'])->name('client.prospectus');
     Route::inertia('/client/inquire', 'client/Inquire')->name('client.inquire');
 
-
-Route::get('/test-courses', function() {
-    return Course::all();
-});
-
-
-// Admin
+// Admin Routes
 Route::inertia('/admin/home', 'admin/Home')->name('admin.home');
 Route::inertia('/admin', 'admin/Home')->name('admin.home');
-// Route::inertia('/admin/studentInfo', 'admin/StudentInformation', ['students' => Student::paginate(8)])->name('admin.studentInfo');
-Route::inertia('/admin/studentInfo', 'admin/StudentInformation')->name('admin.studentInfo');
+
+Route::get('/admin/studentInfo', [StudentController::class, 'getAllStudents'])->name('admin.studentInfo');
+Route::get('/admin/studentInfo/{id}', [StudentController::class, 'showStudentInfo']);
+
+
 Route::inertia('/admin/requests', 'admin/Requests')->name('admin.requests');
 Route::get('/admin/studentinfo', [StudentController::class, 'index']);
 

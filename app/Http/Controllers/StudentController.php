@@ -8,11 +8,18 @@ use Inertia\Inertia;
 
 class StudentController extends Controller
 {
-    public function index(){
-    $students = Student::paginate(8);
+    public function getAllStudents(Request $request){
+        $students = Student::paginate(8);
 
-    return Inertia::render('admin/StudentInformation', [
-        'students' => $students,
-    ]);
+        return Inertia::render('admin/StudentInformation', [
+            'students' => $students,
+        ]);
+    }
+
+    public function showStudentInfo(Request $request, $id){
+        $student = Student::findOrFail($id);
+        return Inertia::render('admin/ShowStudent', [
+            'studentInfos' => $student,
+        ]);
     }
 }

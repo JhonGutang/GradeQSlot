@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function register(Request $request)
+    public function registerStudent(Request $request)
     {
         sleep(1);
         $fields = $request->validate([
@@ -26,7 +26,7 @@ class AuthController extends Controller
         return redirect()->route('login');
     }
 
-    public function login(Request $request)
+    public function loginStudent(Request $request)
     {
         $fields = $request->validate([
             'student_id' => ['required'],
