@@ -10,8 +10,8 @@ class Student extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-    protected $primaryKey = 'student_id'; // Specify the primary key
-    public $incrementing = false; // Disable auto-incrementing
+    protected $primaryKey = 'student_id'; 
+    public $incrementing = false; 
     
     /**
      * The attributes that are mass assignable.

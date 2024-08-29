@@ -1,10 +1,13 @@
 <?php
 
+namespace Database\Factories;
+
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Student;
 
 class StudentFactory extends Factory
 {
-    protected $model = \App\Models\Student::class;
+    protected $model = Student::class;
 
     public function definition(): array
     {

@@ -11,13 +11,14 @@ use Inertia\Inertia;
 Route::inertia('/', 'Homes');
 
 // Auth routes
-Route::middleware('guest')->group(function () {
+
     Route::inertia('/auth/login', 'auth/Login')->name('login');
+    Route::inertia('/auth', 'auth/Login')->name('login');
     Route::inertia('/auth/register', 'auth/Register')->name('register');
 
-    Route::post('/auth/register', [AuthController::class, 'register']);
-    Route::post('/auth/login', [AuthController::class, 'login']);
-});
+    Route::post('/auth/register', [AuthController::class, 'registerStudent']);
+    Route::post('/auth/login', [AuthController::class, 'loginStudent']);
+
 
 // Client routes
 

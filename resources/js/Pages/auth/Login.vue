@@ -10,7 +10,7 @@ const form = useForm({
 
 
 const onLogin = () => {
-  form.post(route('login'))
+  form.post('/auth/login')
   onError: () => form.reset('password')
 } 
 
