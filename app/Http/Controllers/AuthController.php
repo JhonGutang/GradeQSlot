@@ -15,9 +15,9 @@ class AuthController extends Controller
         $fields = $request->validate([
             'student_id' => ['required', 'max:255'],
             'name' => ['required', 'max:255'],
-            'gender' => ['required', 'in:Male,Female,other'], // assuming gender is a select input
-            'email' => ['required', 'email', 'max:255', 'unique:students'], // ensure the email is unique in the students table
-            'password' => ['required', 'min:8', 'confirmed'], // confirmed checks if 'password' matches 'password_confirmation'
+            'gender' => ['required', 'in:Male,Female,other'], 
+            'email' => ['required', 'email', 'max:255', 'unique:students'],
+            'password' => ['required', 'min:8', 'confirmed'],
 
         ]);
 

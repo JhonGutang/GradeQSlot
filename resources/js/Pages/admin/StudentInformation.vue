@@ -2,25 +2,28 @@
 import AdminPageLayout from '../../Layouts/AdminPageLayout.vue';
 import Searchbar from "../../Components/Searchbar.vue";
 import { ref, computed } from 'vue';
-
+import { usePage } from '@inertiajs/inertia-vue3';
 
 const props = defineProps({
+  error: Object,
   students: Object,
 })
 
-// Reactive state for the search query
-const searchQuery = ref('');
 
-// Computed property to filter courses based on the search query
-const filteredStudents = computed(() => {
-  if (!searchQuery.value) {
-    return props.students.data;
-  }
-  return props.students.data.filter(student =>
-    student.name.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-    student.email.toLowerCase().includes(searchQuery.value.toLowerCase()) 
-  );
-});
+
+// Reactive state for the search query
+// const searchQuery = ref('');
+
+// // Computed property to filter courses based on the search query
+// const filteredStudents = computed(() => {
+//   if (!searchQuery.value) {
+//     return props.students.data;
+//   }
+//   return students.data.filter(student =>
+//     props.student.name.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
+//     props.student.email.toLowerCase().includes(searchQuery.value.toLowerCase()) 
+//   );
+// });
 
 // Method to handle search event from the Searchbar component
 const handleSearch = (query) => {
@@ -43,17 +46,17 @@ const handleSearch = (query) => {
               <th class="text-left">Email</th>
             </tr>
           </thead>
-          <tbody>
+          <!-- <tbody>
             <tr v-for="student in filteredStudents" :key="student.id">
               <td>{{ student.student_id }}</td>
               <td>{{ student.name }}</td>
               <td>{{ student.gender }}</td>
               <td>{{ student.email }}</td>
             </tr>
-          </tbody>
+          </tbody> -->
         </v-table>
   
-        <div class="flex justify-center mt-4">
+        <!-- <div class="flex justify-center mt-4">
           <Link
             v-for="link in props.students.links"
             :key="link.label"
@@ -65,7 +68,7 @@ const handleSearch = (query) => {
             }"
             class="border p-2 mx-1 rounded"
           />
-        </div>
+        </div> -->
       </v-container>
     </AdminPageLayout>
   </template>

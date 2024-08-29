@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CoursesController;
+use App\Http\Controllers\StudentController;
 use App\Models\Course;
 use App\Models\Student;
 use Inertia\Inertia;
@@ -38,6 +39,8 @@ Route::get('/test-courses', function() {
 // Admin
 Route::inertia('/admin/home', 'admin/Home')->name('admin.home');
 Route::inertia('/admin', 'admin/Home')->name('admin.home');
-Route::inertia('/admin/studentInfo', 'admin/StudentInformation', ['students' => Student::paginate(8)])->name('admin.studentInfo');
+// Route::inertia('/admin/studentInfo', 'admin/StudentInformation', ['students' => Student::paginate(8)])->name('admin.studentInfo');
+Route::inertia('/admin/studentInfo', 'admin/StudentInformation')->name('admin.studentInfo');
 Route::inertia('/admin/requests', 'admin/Requests')->name('admin.requests');
+Route::get('/admin/studentinfo', [StudentController::class, 'index']);
 
