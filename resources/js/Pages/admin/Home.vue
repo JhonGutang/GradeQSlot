@@ -1,4 +1,5 @@
 <template>
+  <Head title="Home" />
   <AdminPageLayout>
     <h1>this is Admin Home</h1>
   </AdminPageLayout>
