@@ -14,7 +14,7 @@ class DocumentFactory extends Factory
         return [
             'name' => $this->faker->unique()->word(),  // Unique document name
             'description' => $this->faker->sentence(),  // Document description
-            'status' => $this->faker->randomElement(['Pending', 'Approved', 'Rejected']),  // Random status
+            
         ];
     }
 }

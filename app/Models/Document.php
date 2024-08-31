@@ -12,7 +12,6 @@ class Document extends Model
     protected $fillable = [
         'name',
         'description',
-        'status',
     ];
 
     // Define the relationship with DocumentRequest

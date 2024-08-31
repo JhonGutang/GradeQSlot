@@ -18,6 +18,7 @@ class DocumentRequestFactory extends Factory
             'document_id' => Document::factory(),  // Associate with a document
             'other_document_details' => $this->faker->optional()->word(),  // Optional field
             'request_reason' => $this->faker->sentence(),  // Reason for the request
+            'status' => $this->faker->randomElement(['Pending', 'Approved', 'Rejected']),  // Random status
         ];
     }
 }

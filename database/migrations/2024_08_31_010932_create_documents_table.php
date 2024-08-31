@@ -11,7 +11,7 @@ class CreateDocumentsTable extends Migration
             $table->increments('id');  // Primary key
             $table->string('name')->unique();  // Document name
             $table->text('description')->nullable();  // Document description
-            $table->enum('status', ['Pending', 'Approved', 'Rejected'])->default('Pending');  // Document status
+             // Document status
         });
     }
 

@@ -13,6 +13,7 @@ class DocumentRequest extends Model
         'document_id',
         'other_document_details',
         'request_reason',
+        'status'
     ];
 
     // Define the relationship with Document
