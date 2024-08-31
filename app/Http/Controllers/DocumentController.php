@@ -26,4 +26,24 @@ class DocumentController extends Controller
             // 'request_history' => $requests_history,
         ]);
     }
+
+    public function requestingDocument(Request $request, $id){
+        $fields = $request->validate([
+            'documentType' => 'required|string|in:TOR,Diploma,Good Moral,Others',
+            'otherDocument' => 'nullable|string|required_if:documentType,Others',
+            'stateReason' => 'required|string|min:10',
+        ]);
+        $fields['status'] = 'pending';
+
+        DocumentRequest::create([
+            'student_id' => $id,
+            'document_type' => $fields['documentType'],
+            'other_document' => $fields['otherDocument'],
+            'state_reason' => $fields['stateReason'],
+            'status' => $fields['status'],
+        ]);
+    
+        // Redirect or return response after saving
+        return redirect()->back()->with('success', 'Document request submitted successfully!');
+    }
 }

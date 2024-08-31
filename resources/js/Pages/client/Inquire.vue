@@ -1,18 +1,42 @@
 <script setup>
+import { useForm } from "@inertiajs/inertia-vue3";
 import ClientPageLayout from "../../Layouts/ClientPageLayout.vue";
 import { ref } from "vue";
 
-const selectedDocument = ref(null);
-const otherDocument = ref("");
-const stateReason = ref("");
 
-const documentOptions = ["TOR", "Diploma", "Good Moral", "Others"];
+
+
+
+
+defineProps({
+  auth: {
+    type: Object,
+    required: true, // if this prop is required
+  },
+  documents: {
+    type: Object,
+    required: true, // if this prop is required
+  },
+})
+
 
 const handleDocumentChange = () => {
   if (selectedDocument.value !== "Others") {
     otherDocument.value = ""; // Clear the text field if 'Others' is not selected
   }
 };
+
+const form = useForm({
+    documentType : null,
+    otherDocument : null,
+    stateReason : null,
+})
+
+function onSubmit(id){
+  console.log(form)
+  form.post('/client/inquire/' + id)
+  
+}
 </script>
 
 <template>
@@ -22,13 +46,14 @@ const handleDocumentChange = () => {
       <v-row class="fill-height" justify="center">
         <v-col cols="12" md="auto">
           <v-sheet width="700">
-            <v-form class="border pa-5">
+            <v-form class="border pa-5" @submit.prevent="onSubmit(auth.student.id)" >
               <div class="text-h5 font-weight-bold text-center mb-10">Inquire Documents</div>
               <!-- Choose Document -->
+               
               <div class="d-flex flex-row">
                 <div class="text-body-2 font-weight-bold me-5">Choose Document</div>
                 <v-select
-                  v-model="selectedDocument"
+                  v-model="form.documentType"
                   :items="documentOptions"
                   label="Choose Document"
                   outlined
@@ -37,10 +62,10 @@ const handleDocumentChange = () => {
               </div>
   
               <!-- Others -->
-              <v-container v-if="selectedDocument === 'Others'" class="d-flex flex-row">
+              <v-container v-if="form.documentType === 'Others'" class="d-flex flex-row">
                 <div class="text-body-2 font-weight-bold me-5">Others: </div>
                 <v-text-field
-                  v-model="otherDocument"
+                  v-model="form.otherDocument"
                   label="Please specify"
                   outlined
                 ></v-text-field>
@@ -52,7 +77,7 @@ const handleDocumentChange = () => {
                 </div>
   
                 <v-textarea
-                  v-model="stateReason"
+                  v-model="form.stateReason"
                   label=""
                   outlined
                   rows="4"

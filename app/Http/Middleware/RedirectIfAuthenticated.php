@@ -11,7 +11,6 @@ class RedirectIfAuthenticated
     {
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                // Redirect authenticated users to their dashboard/home page
                 return redirect('/client/home');
             }
         }

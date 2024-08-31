@@ -42,12 +42,6 @@ class AuthController extends Controller
             $request->session()->regenerate();
             if (Auth::guard('student')->check()) {
                 return redirect()->intended('client/home');
-                // return Inertia::render('client/Home', [
-                //     'auth' => [
-                //         'student' => $student,
-                //     ],
-                // ]);
-                
             } else {
                 dd('Failed to authenticate student');
             }
@@ -62,13 +56,10 @@ class AuthController extends Controller
     public function logoutStudent(Request $request)
     {
 
-        Auth::logout();
-
+        Auth::guard('student')->logout();
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
-
-        return redirect()->route('login');
+        return redirect('/auth/login');
     }
     
 }    

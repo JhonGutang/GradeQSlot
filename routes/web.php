@@ -7,6 +7,7 @@ use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\StudentController;
 use App\Models\Course;
+use App\Models\Document;
 use App\Models\Student;
 use Inertia\Inertia;
 
@@ -21,12 +22,13 @@ Route::middleware('guest:student')->group(function () {
     Route::post('/auth/login', [AuthController::class, 'loginStudent']);
 });
 
-Route::middleware(['auth:student'])->group(function(){
+Route::middleware('auth:student')->group(function(){
 Route::inertia('/client', 'client/Home');
 Route::inertia('/client/home', 'client/Home')->name('client.home');
 Route::inertia('/client/profile', 'client/Profile')->name('client.profile');
 Route::get('/client/prospectus', [CoursesController::class, 'index'])->name('client.prospectus');
-Route::inertia('/client/inquire', 'client/Inquire')->name('client.inquire');
+Route::inertia('/client/inquire', 'client/Inquire', ['documents' => Document::all()])->name('client.inquire');
+Route::post('/client/inquire/{id}', [DocumentController::class, 'requestingDocument']);
 Route::post('/client/logout', [AuthController::class, 'logoutStudent'])->name('logout');
 });
 
