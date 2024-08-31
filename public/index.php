@@ -17,15 +17,7 @@ require __DIR__.'/../vendor/autoload.php';
     ->handleRequest(Request::capture());
     if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
         require $maintenance;
-    }
-    if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
-        require $maintenance;
-    }
-
-    if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
-        require $maintenance;
-    }
-
+  
 
     
     
