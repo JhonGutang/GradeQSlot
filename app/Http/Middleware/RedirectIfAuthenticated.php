@@ -5,16 +5,16 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class RedirectIfAuthenticated
-{
-    public function handle($request, Closure $next, ...$guards)
-    {
-        foreach ($guards as $guard) {
-            if (Auth::guard($guard)->check()) {
-                return redirect('/client/home');
-            }
-        }
+// class RedirectIfAuthenticated
+// {
+//     public function handle($request, Closure $next, ...$guards)
+//     {
+//         foreach ($guards as $guard) {
+//             if (Auth::guard($guard)->check()) {
+//                 return redirect('/client/home');
+//             }
+//         }
 
-        return $next($request);
-    }
-}
+//         return $next($request);
+//     }
+// }

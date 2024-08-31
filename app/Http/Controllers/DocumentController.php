@@ -28,7 +28,7 @@ class DocumentController extends Controller
         ]);
     }
 
-    public function getDocuments(Request $request){
+    public function getDocuments(){
         $documents=Document::all();
         return Inertia::render('client/Inquire', [
             'documents' => $documents,

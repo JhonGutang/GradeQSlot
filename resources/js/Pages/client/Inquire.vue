@@ -4,7 +4,6 @@ import ClientPageLayout from "../../Layouts/ClientPageLayout.vue";
 import { ref } from "vue";
 
 
-const documentOptions = ['TOR', 'Diploma', 'Others']
 
 
 
@@ -13,10 +12,10 @@ defineProps({
     type: Object,
     required: true, // if this prop is required
   },
-  // documents: {
-  //   type: Object,
-  //   required: true, // if this prop is required
-  // },
+  documents: {
+    type: Array,
+    required: true, // if this prop is required
+  },
 })
 
 
@@ -54,7 +53,7 @@ function onSubmit(id){
                 <div class="text-body-2 font-weight-bold me-5">Choose Document</div>
                 <v-select
                   v-model="form.documentType"
-                  :items="documentOptions"
+                  :items="documents"
                   label="Choose Document"
                   outlined
                   @change="handleDocumentChange"

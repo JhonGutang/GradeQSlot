@@ -9,6 +9,7 @@ defineProps({
 <template>
     <Head title="Home"/>
     <ClientPageLayout>
-        <h1>This is Homepage boss {{auth.student.name}}</h1>
+        <h1>This is Homepage boss </h1>
     </ClientPageLayout>
 </template>
+<!-- {{auth.student.name}} -->
