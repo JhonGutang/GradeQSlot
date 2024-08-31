@@ -16,7 +16,7 @@ Route::inertia('/', 'Homes');
 // Auth routes
 
     Route::inertia('/auth/login', 'auth/Login')->name('login');
-    Route::inertia('/auth', 'auth/Login')->name('login');
+    Route::inertia('/auth', 'auth/Login');
     Route::inertia('/auth/register', 'auth/Register')->name('register');
 
     Route::post('/auth/register', [AuthController::class, 'registerStudent']);
@@ -25,7 +25,7 @@ Route::inertia('/', 'Homes');
 
 // Client routes
 
-    Route::inertia('/client', 'client/Home')->name('client.home');
+    Route::inertia('/client', 'client/Home');
     Route::inertia('/client/home', 'client/Home')->name('client.home');
     Route::inertia('/client/landingPage', 'client/LandingPage')->name('client.landingPage');
     Route::inertia('/client/profile', 'client/Profile')->name('client.profile');
@@ -34,7 +34,7 @@ Route::inertia('/', 'Homes');
 
 // Admin Routes
 Route::inertia('/admin/home', 'admin/Home')->name('admin.home');
-Route::inertia('/admin', 'admin/Home')->name('admin.home');
+Route::inertia('/admin', 'admin/Home');
 
 Route::get('/admin/studentInfo', [StudentController::class, 'getAllStudents'])->name('admin.studentInfo');
 Route::get('/admin/studentInfo/{id}', [StudentController::class, 'showStudentInfo']);

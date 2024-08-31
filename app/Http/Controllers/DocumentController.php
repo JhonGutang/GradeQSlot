@@ -12,11 +12,18 @@ class DocumentController extends Controller
 {
     public function index(Request $request){
         $document_requests = DocumentRequest::with(['student', 'document'])
-            ->paginate(8);
+        ->paginate(8);
+        // $document_requests = DocumentRequest::with(['student', 'document'])
+        // ->where('status', 'pending')
+        //     ->paginate(8);
 
+        // $requests_history = DocumentRequest::with(['student', 'document'])
+        // ->where('status', '!=', 'pending')
+        //     ->paginate(8);
 
         return Inertia::render('admin/Requests', [
             'document_requests' => $document_requests,
+            // 'request_history' => $requests_history,
         ]);
     }
 }
