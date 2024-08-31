@@ -10,9 +10,10 @@ use Inertia\Inertia;
 
 class DocumentController extends Controller
 {
-    public function index(Request $request){
+    public function getDocumentRequests(Request $request){
         $document_requests = DocumentRequest::with(['student', 'document'])
         ->paginate(8);
+
         // $document_requests = DocumentRequest::with(['student', 'document'])
         // ->where('status', 'pending')
         //     ->paginate(8);
@@ -27,6 +28,13 @@ class DocumentController extends Controller
         ]);
     }
 
+    public function getDocuments(Request $request){
+        $documents=Document::all();
+        return Inertia::render('client/Inquire', [
+            'documents' => $documents,
+        ]);
+    }
+
     public function requestingDocument(Request $request, $id){
         $fields = $request->validate([
             'documentType' => 'required|string|in:TOR,Diploma,Good Moral,Others',
@@ -35,15 +43,6 @@ class DocumentController extends Controller
         ]);
         $fields['status'] = 'pending';
 
-        DocumentRequest::create([
-            'student_id' => $id,
-            'document_type' => $fields['documentType'],
-            'other_document' => $fields['otherDocument'],
-            'state_reason' => $fields['stateReason'],
-            'status' => $fields['status'],
-        ]);
-    
-        // Redirect or return response after saving
-        return redirect()->back()->with('success', 'Document request submitted successfully!');
+        return dd($fields);
     }
 }

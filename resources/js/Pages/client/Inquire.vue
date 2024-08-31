@@ -4,7 +4,7 @@ import ClientPageLayout from "../../Layouts/ClientPageLayout.vue";
 import { ref } from "vue";
 
 
-
+const documentOptions = ['TOR', 'Diploma', 'Others']
 
 
 
@@ -13,10 +13,10 @@ defineProps({
     type: Object,
     required: true, // if this prop is required
   },
-  documents: {
-    type: Object,
-    required: true, // if this prop is required
-  },
+  // documents: {
+  //   type: Object,
+  //   required: true, // if this prop is required
+  // },
 })
 
 

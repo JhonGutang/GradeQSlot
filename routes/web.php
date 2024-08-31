@@ -27,7 +27,7 @@ Route::inertia('/client', 'client/Home');
 Route::inertia('/client/home', 'client/Home')->name('client.home');
 Route::inertia('/client/profile', 'client/Profile')->name('client.profile');
 Route::get('/client/prospectus', [CoursesController::class, 'index'])->name('client.prospectus');
-Route::inertia('/client/inquire', 'client/Inquire', ['documents' => Document::all()])->name('client.inquire');
+Route::inertia('/client/inquire', 'client/Inquire')->name('client.inquire');
 Route::post('/client/inquire/{id}', [DocumentController::class, 'requestingDocument']);
 Route::post('/client/logout', [AuthController::class, 'logoutStudent'])->name('logout');
 });
@@ -38,6 +38,6 @@ Route::inertia('/admin/home', 'admin/Home')->name('admin.home');
 Route::inertia('/admin', 'admin/Home');
 Route::get('/admin/studentInfo', [StudentController::class, 'getAllStudents'])->name('admin.studentInfo');
 Route::get('/admin/studentInfo/{id}', [StudentController::class, 'showStudentInfo']);
-Route::get('/admin/requests', [DocumentController::class, 'index'])->name('admin.requests');
+Route::get('/admin/requests', [DocumentController::class, 'getDocumentRequests'])->name('admin.requests');
 Route::get('/admin/studentinfo', [StudentController::class, 'index']);
 
