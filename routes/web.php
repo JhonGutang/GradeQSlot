@@ -13,16 +13,16 @@ use Inertia\Inertia;
 
 // Home
 
-// Route::middleware('guest:student')->group(function () {
+Route::middleware('guest:student')->group(function () {
     Route::inertia('/', 'Homes');
     Route::inertia('/auth/login', 'auth/Login')->name('login');
     Route::inertia('/auth', 'auth/Login');
     Route::inertia('/auth/register', 'auth/Register')->name('register');
     Route::post('/auth/register', [AuthController::class, 'registerStudent']);
     Route::post('/auth/login', [AuthController::class, 'loginStudent']);
-// });
+});
 
-// Route::middleware('auth:student')->group(function(){
+Route::middleware('auth:student')->group(function(){
 Route::inertia('/client', 'client/Home');
 Route::inertia('/client/home', 'client/Home')->name('client.home');
 Route::inertia('/client/profile', 'client/Profile')->name('client.profile');
@@ -30,7 +30,7 @@ Route::get('/client/prospectus', [CoursesController::class, 'index'])->name('cli
 Route::get('/client/inquire', [DocumentController::class, 'getDocuments'])->name('client.inquire');
 Route::post('/client/inquire/{id}', [DocumentController::class, 'requestingDocument']);
 Route::post('/client/logout', [AuthController::class, 'logoutStudent'])->name('logout');
-// });
+});
 
 
 // Admin Routes

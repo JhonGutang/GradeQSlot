@@ -3,12 +3,19 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Document;
+use Illuminate\Support\Facades\DB;
 
 class DocumentSeeder extends Seeder
 {
     public function run()
     {
-        Document::factory()->count(10)->create();  // Create 10 document records
+        // Define the documents you want to create
+        DB::table('documents')->insert([
+            ['name' => 'TOR'],
+            ['name' => 'DIPLOMA'],
+            ['name' => 'OTHERS'],
+            ['name' => 'FORM 137'],
+            ['name' => 'GOOD MORAL'],
+        ]);
     }
 }
