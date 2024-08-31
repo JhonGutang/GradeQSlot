@@ -20,7 +20,7 @@ const onLogin = () => {
   <AuthLayout title="Login">
     <v-form @submit.prevent="onLogin">
       <v-text-field
-      v-model="form.student_id"
+      v-model="form.id"
         label="Student Id"
         type="number"
         color="primary"

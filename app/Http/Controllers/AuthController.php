@@ -6,6 +6,7 @@ use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Inertia\Inertia;
 
 class AuthController extends Controller
 {
@@ -26,34 +27,48 @@ class AuthController extends Controller
         return redirect()->route('login');
     }
 
+
     public function loginStudent(Request $request)
     {
         $fields = $request->validate([
-            'student_id' => ['required'],
+            'id' => ['required'],
             'password' => ['required', 'min:8']
         ]);
     
-        $student = Student::where('student_id', $fields['id'])->first();
-
-        
-        // Check if student exists and password matches
+        $student = Student::where('id', $fields['id'])->first();
+    
         if ($student && Hash::check($fields['password'], $student->password)) {
-            // Create a session for the student
-            Auth::login($student); // Make sure to log the student in
-            
-            // Regenerate session
+            Auth::guard('student')->login($student);
             $request->session()->regenerate();
-            
-            // Redirect to intended page with user data
-            return redirect()->intended('/client/home')
-            ->with('auth', [
-                'id' => $student // Include user data here
-            ]);
+            if (Auth::guard('student')->check()) {
+                return redirect()->intended('client/home');
+                // return Inertia::render('client/Home', [
+                //     'auth' => [
+                //         'student' => $student,
+                //     ],
+                // ]);
+                
+            } else {
+                dd('Failed to authenticate student');
+            }
         }
-        
-        return dd($student);
-        // return back()->withErrors([
-        //     'student_id' => 'The provided credentials do not match our records.',
-        // ])->onlyInput('student_id');
+    
+        return back()->withErrors([
+            'id' => 'The provided credentials do not match our records.',
+        ])->onlyInput('id');
     }
-}
+
+
+    public function logoutStudent(Request $request)
+    {
+
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect()->route('login');
+    }
+    
+}    

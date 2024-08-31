@@ -70,7 +70,7 @@ return [
         ],
         'students' => [ // Add this section for student provider
             'driver' => 'eloquent',
-            'model' => App\Models\Student::class, // Specify the Student model here
+            'model' => env('AUTH_MODEL', App\Models\Student::class), // Specify the Student model here
         ],
 
         // 'users' => [

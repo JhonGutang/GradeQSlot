@@ -33,7 +33,7 @@ const props = defineProps({
 
                 <v-row class="d-flex flex-col">
                     <v-col>
-                        <Link :href="route('login')">
+                        <Link :href="route('logout')" method="post" as="button">
                             <v-list-item link class="text-h6">Logout</v-list-item>
                         </Link>
                     </v-col>
