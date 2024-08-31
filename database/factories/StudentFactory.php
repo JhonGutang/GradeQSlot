@@ -13,7 +13,7 @@ class StudentFactory extends Factory
     public function definition(): array
     {
         return [
-            'student_id' => $this->faker->unique()->numberBetween(100, 999),
+            'id' => $this->faker->unique()->numberBetween(100, 999),
             'name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
             'gender' => $this->faker->randomElement(['Male', 'Female']),

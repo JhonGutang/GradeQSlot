@@ -13,7 +13,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('students', function (Blueprint $table) {
-            $table->string('student_id')->primary(); // Use string if storing like '12203091'
+            $table->bigInteger('id')->unsigned()->primary(); // Use string if storing like '12203091'
             $table->string('name');
             $table->string('email')->unique();
             $table->string('gender');

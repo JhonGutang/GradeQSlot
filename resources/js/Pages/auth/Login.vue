@@ -4,7 +4,7 @@ import { Link, useForm } from "@inertiajs/vue3";
 import AuthLayout from "../../Layouts/AuthRegistrationLayout.vue";
 
 const form = useForm({
-    student_id: null,
+    id: null,
     password: null,
 })
 
@@ -26,8 +26,8 @@ const onLogin = () => {
         color="primary"
         class="mb-2"
         hide-spin-buttons
-        :error="!!form.errors.student_id"
-        :error-messages="form.errors.student_id ? [form.errors.student_id] : []"
+        :error="!!form.errors.id"
+        :error-messages="form.errors.id ? [form.errors.id] : []"
       ></v-text-field>
 
       <v-text-field

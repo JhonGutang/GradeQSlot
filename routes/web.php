@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CoursesController;
+use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\StudentController;
 use App\Models\Course;
 use App\Models\Student;
@@ -39,6 +40,6 @@ Route::get('/admin/studentInfo', [StudentController::class, 'getAllStudents'])->
 Route::get('/admin/studentInfo/{id}', [StudentController::class, 'showStudentInfo']);
 
 
-Route::inertia('/admin/requests', 'admin/Requests')->name('admin.requests');
+Route::get('/admin/requests', [DocumentController::class, 'index'])->name('admin.requests');
 Route::get('/admin/studentinfo', [StudentController::class, 'index']);
 

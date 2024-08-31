@@ -50,12 +50,12 @@ function showStudent(id) {
         <tbody>
           <template v-for="student in filteredStudents" :key="student.id">
             <tr 
-              @click="showStudent(student.student_id)" 
+              @click="showStudent(student.id)" 
               :class="{
                 'hover:bg-gray-300 cursor-pointer': true // Add hover and pointer styles
               }"
             >
-              <td>{{ student.student_id }}</td>
+              <td>{{ student.id }}</td>
               <td>{{ student.name }}</td>
               <td>{{ student.gender }}</td>
               <td>{{ student.email }}</td>

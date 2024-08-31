@@ -13,7 +13,7 @@ class AuthController extends Controller
     {
         sleep(1);
         $fields = $request->validate([
-            'student_id' => ['required', 'max:255'],
+            'id' => ['required', 'max:255'],
             'name' => ['required', 'max:255'],
             'gender' => ['required', 'in:Male,Female,other'], 
             'email' => ['required', 'email', 'max:255', 'unique:students'],
@@ -33,7 +33,7 @@ class AuthController extends Controller
             'password' => ['required', 'min:8']
         ]);
     
-        $student = Student::where('student_id', $fields['student_id'])->first();
+        $student = Student::where('student_id', $fields['id'])->first();
 
         
         // Check if student exists and password matches
@@ -47,7 +47,7 @@ class AuthController extends Controller
             // Redirect to intended page with user data
             return redirect()->intended('/client/home')
             ->with('auth', [
-                'student_id' => $student // Include user data here
+                'id' => $student // Include user data here
             ]);
         }
         

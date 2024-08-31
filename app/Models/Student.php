@@ -10,7 +10,7 @@ class Student extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-    protected $primaryKey = 'student_id'; 
+    protected $primaryKey = 'id'; 
     public $incrementing = false; 
     
     /**
@@ -19,7 +19,7 @@ class Student extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'student_id',
+        'id',
         'name',
         'email',
         'gender',

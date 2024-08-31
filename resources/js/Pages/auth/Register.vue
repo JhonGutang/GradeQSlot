@@ -3,7 +3,7 @@ import { Link, router, useForm } from "@inertiajs/vue3";
 import RegistrationLayout from "../../Layouts/AuthRegistrationLayout.vue";
 
 const form = useForm({
-  student_id: null,
+  id: null,
   name: null,
   gender: null,
   email: null,
@@ -24,14 +24,14 @@ const onRegister = () => {
     <v-form @submit.prevent="onRegister">
       <v-sheet height="280" class="overflow-y-scroll mb-5">
         <v-text-field
-        v-model="form.student_id"
+        v-model="form.id"
           label="Student ID"
           type="number"
           color="primary"
           hide-spin-buttons
           class="mb-3"
-          :error="!!form.errors.student_id"
-          :error-messages="form.errors.student_id ? [form.errors.student_id] : []"
+          :error="!!form.errors.id"
+          :error-messages="form.errors.id ? [form.errors.id] : []"
         ></v-text-field>
         
         

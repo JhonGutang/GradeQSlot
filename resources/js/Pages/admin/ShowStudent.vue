@@ -21,7 +21,7 @@ defineProps({
       </thead>
       <tbody>
         <tr v-if="studentInfos">
-          <td>{{ studentInfos.student_id }}</td>
+          <td>{{ studentInfos.id }}</td>
           <td>{{ studentInfos.name }}</td>
           <td>{{ studentInfos.email }}</td>
         </tr>
