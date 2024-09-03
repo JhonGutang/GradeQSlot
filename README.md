@@ -38,35 +38,41 @@ Follow these steps after cloning the repository to set up and run the project lo
 1. Copy the example environment file and create your own:
    ```bash
    cp .env.example .env
-Install PHP dependencies using Composer:
-bash
-Copy code
-composer install
-Generate a new application key:
-bash
-Copy code
-php artisan key:generate
-Run database migrations:
-bash
-Copy code
-php artisan migrate
-(Optional) Seed the database:
-bash
-Copy code
-php artisan db:seed
-Frontend Setup
-Install JavaScript dependencies:
-bash
-Copy code
-npm install
-Run the development server:
-bash
-Copy code
-npm run dev
-Usage
-After completing the installation steps, you can start the Laravel development server with:
+   ```
+2. Install PHP dependencies using Composer:
+   ```bash
+   composer install
+   ```
+3. Generate a new application key:
+   ```bash
+   php artisan key:generate
+   ```
+4. Run database migrations:
+    ```bash
+    php artisan migrate
+    ```
+5.  Seed the database: (Optional)
+    ```bash
+    php artisan db:seed
+    ```
+    
+### Frontend Setup
 
-bash
-Copy code
+1. Install JavaScript dependencies:
+    ```bash
+    npm install
+    ```
+    
+2. Run the development server:
+    ```bash
+    npm run dev
+    
+    ```
+
+### Usage
+After completing the installation steps, you can start the Laravel development server with:
+```bash
 php artisan serve
+```
+
 Visit http://127.0.0.1:8000/ in your web browser to view the application.
