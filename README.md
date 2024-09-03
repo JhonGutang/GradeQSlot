@@ -19,6 +19,23 @@ A brief description of your project, its purpose, and any key features.
 
 Follow these steps after cloning to set up and run the project locally.
 
+##Prerequisites
+### Step 1: Setup
+
+1. Install XAMPP.
+2. Install Composer.
+3. Install Node.js.
+
+4. Configure XAMPP:
+   - Go to XAMPP, start Apache and MySQL.
+   - Select Config in Apache and click on php.ini.
+   - Press Ctrl + F and type `extension=zip`.
+     - If there is a semicolon (;) before `extension=zip`, remove it.
+     - If not, do not change anything.
+
+5. Open Visual Studio Code (VSCode).
+
+
 ### Backend Setup
 
 1. **Copy the example environment file and create your own:**
