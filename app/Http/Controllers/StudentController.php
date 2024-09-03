@@ -17,6 +17,9 @@ class StudentController extends Controller
     }
 
     public function showRequestHistory(Request $request, $id){
-        $student = Student::with('documentRequests')->find($id);
+        $student = Student::with('documentRequests.document')->find($id);
+        return Inertia::render('client/RequestHistory', [
+        'student' => $student,
+        ]);
     }
 }

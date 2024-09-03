@@ -57,4 +57,14 @@ class Student extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function documentRequests()
+    {
+        return $this->hasMany(DocumentRequest::class);
+    }
+
+    public function document()
+    {
+        return $this->belongsTo(Document::class);
+    }
 }

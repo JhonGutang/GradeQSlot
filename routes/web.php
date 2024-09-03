@@ -27,7 +27,7 @@ Route::middleware('auth:student')->group(function(){
 Route::inertia('/client', 'client/Home');
 Route::inertia('/client/home', 'client/Home')->name('client.home');
 Route::get('/client/profile', [StudentController::class, 'index'])->name('client.profile');
-Route::inertia('/client/requestHistory', 'client/RequestHistory')->name('client.history');
+Route::get('/client/requestHistory/{id}', [StudentController::class, 'showRequestHistory'])->name('client.history');
 Route::get('/client/prospectus', [CoursesController::class, 'index'])->name('client.prospectus');
 Route::get('/client/inquire', [DocumentController::class, 'getDocuments'])->name('client.inquire');
 Route::post('/client/inquire/{id}', [DocumentController::class, 'requestingDocument']);

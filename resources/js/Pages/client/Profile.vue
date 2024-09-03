@@ -1,11 +1,17 @@
 <script setup>
 import ClientPageLayout from "../../Layouts/ClientPageLayout.vue";
+import { router } from "@inertiajs/vue3";
+
 defineProps({
   student: {
     type: Object,
     required: true,
   }
 })
+
+function showHistory(id){
+  router.get('requestHistory/' + id);
+}
 
 </script>
 
@@ -102,7 +108,9 @@ defineProps({
         >
           <v-card-title class="bg-indigo-darken-2 d-flex justify-between" >
             <div>Request History</div>
-            <Link :href="route('client.history')" class="text-button" type="button">View</Link>
+            <v-btn @click="showHistory(student.id)" color="indigo" flat>
+              View
+            </v-btn>
           </v-card-title>
       
           <v-card-text class="bg-surface-light">
