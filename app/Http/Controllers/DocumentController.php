@@ -36,13 +36,26 @@ class DocumentController extends Controller
     }
 
     public function requestingDocument(Request $request, $id){
-        $fields = $request->validate([
-            'documentType' => 'required|string|in:TOR,Diploma,Good Moral,Others',
-            'otherDocument' => 'nullable|string|required_if:documentType,Others',
-            'stateReason' => 'required|string|min:10',
+        $validatedFields = $request->validate([
+            'documentType' => 'required|integer|exists:documents,id',
+            'otherDocument' => 'nullable|string|required_if:documentType,3',
+            'stateReason' => 'required|string|max:255',
         ]);
-        $fields['status'] = 'pending';
 
-        return dd($fields);
+        $fields = [
+            'student_id' => $id,
+            'document_id' => $validatedFields['documentType'],
+            'other_document_details' => $validatedFields['otherDocument'],
+            'request_reason' => $validatedFields['stateReason'],
+            'status' => 'pending',
+        ];
+        
+
+        $documentRequest = DocumentRequest::create($fields);
+        return response()->json([
+            'message' => 'Document request submitted successfully!',
+            'data' => $documentRequest
+        ], 201); // 201 status code indicates that a resource was successfully created
+    
     }
 }

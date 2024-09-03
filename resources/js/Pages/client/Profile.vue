@@ -1,5 +1,12 @@
 <script setup>
 import ClientPageLayout from "../../Layouts/ClientPageLayout.vue";
+defineProps({
+  student: {
+    type: Object,
+    required: true,
+  }
+})
+
 </script>
 
 <template>
@@ -17,8 +24,9 @@ import ClientPageLayout from "../../Layouts/ClientPageLayout.vue";
           ></v-img>
         </v-col>
         <v-col class="d-flex flex-column justify-center">
-          <div class="text-h5 font-weight-bold">John Doe</div>
-          <div class="text-subtitle-2">JohnDoe@gmail.com</div>
+          <div class="text-h5 font-weight-bold text-capitalize">{{student.id}}</div>
+          <div class="text-h5 font-weight-bold text-capitalize">{{student.name}}</div>
+          <div class="text-subtitle-2">{{student.email}}</div>
         </v-col>
       </v-row>
 
@@ -55,6 +63,7 @@ import ClientPageLayout from "../../Layouts/ClientPageLayout.vue";
                   <div class="font-weight-bold me-4">Place of Birth:</div>
                   <div>Cabitoonan Toledo City</div>
                 </v-col>
+
               </v-row>
               <v-row class="mb-3">
                 <v-col cols="5" class="d-flex flex-row">
@@ -91,8 +100,9 @@ import ClientPageLayout from "../../Layouts/ClientPageLayout.vue";
           class="mx-auto"
           variant="outlined"
         >
-          <v-card-title class="bg-indigo-darken-2" >
+          <v-card-title class="bg-indigo-darken-2 d-flex justify-between" >
             <div>Request History</div>
+            <Link :href="route('client.history')" class="text-button" type="button">View</Link>
           </v-card-title>
       
           <v-card-text class="bg-surface-light">

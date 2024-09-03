@@ -7,6 +7,7 @@
           <Link to="/services" class="text-gray-300 text-sm hover:text-white">Services</Link>
           <Link to="/about" class="text-gray-300 text-sm hover:text-white">About Us</Link>
           <Link to="/contact" class="text-gray-300 text-sm hover:text-white">Contact Us</Link>
+          <Link :href="route('login')" class="text-gray-300 text-sm hover:text-white">Login</Link>
         </div>
       </div>
     </nav>
