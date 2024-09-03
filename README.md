@@ -19,7 +19,7 @@ A brief description of your project, its purpose, and any key features.
 
 Follow these steps after cloning to set up and run the project locally.
 
-##Prerequisites
+**Prerequisites**
 ### Step 1: Setup
 
 1. Install XAMPP.
