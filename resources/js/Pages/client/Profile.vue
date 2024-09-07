@@ -108,9 +108,11 @@ function showHistory(id){
         >
           <v-card-title class="bg-indigo-darken-2 d-flex justify-between" >
             <div>Request History</div>
-            <v-btn @click="showHistory(student.id)" color="indigo" flat>
-              View
-            </v-btn>
+            <Link :href="route('client.inquire')">
+              <v-btn color="indigo" flat>
+                View
+              </v-btn>  
+            </Link>
           </v-card-title>
       
           <v-card-text class="bg-surface-light">

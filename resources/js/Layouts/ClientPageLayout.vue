@@ -2,6 +2,7 @@
 import Sidebar from '../Components/Sidebar.vue';
 import Header from '../Components/Header.vue';
 
+
 const navItems = [
   { title: 'Home', route: route('client.home') },
   { title: 'Profile', route: route('client.profile') },
