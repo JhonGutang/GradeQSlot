@@ -1,20 +1,18 @@
 <template>
-    <nav class="bg-blue-500 h-16">
-      <div class="container mx-auto flex justify-between items-center h-full">
-        <div class="text-white text-xl font-bold">My Website</div>
-        <div class="space-x-4">
-          <Link to="/" class="text-gray-300 text-sm hover:text-white">Home</Link>
-          <Link to="/services" class="text-gray-300 text-sm hover:text-white">Services</Link>
-          <Link to="/about" class="text-gray-300 text-sm hover:text-white">About Us</Link>
-          <Link to="/contact" class="text-gray-300 text-sm hover:text-white">Contact Us</Link>
-          <Link :href="route('login')" class="text-gray-300 text-sm hover:text-white">Login</Link>
-        </div>
-      </div>
-    </nav>
+  <LandingHeader />
+  <Hero />
+  <About /> 
+  <Services />
+  <Footer />
+
   </template>
   
   <script setup>
-    
+  import LandingHeader from '../Components/LandingHeader.vue'
+  import Hero from '../Components/Hero.vue'
+  import About from '../Components/About.vue'
+  import Footer from '../Components/Footer.vue'
+  import Services from '../Components/Services.vue'
   </script>
   
   <style scoped>
