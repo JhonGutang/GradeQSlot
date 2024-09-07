@@ -12,6 +12,10 @@ defineProps({
     type: Object,
     required: true, // if this prop is required
   },
+  student: {
+        type: Object,
+        required: true,
+    }
 });
 
 

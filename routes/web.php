@@ -41,5 +41,6 @@ Route::inertia('/admin', 'admin/Home');
 Route::get('/admin/studentInfo', [AdminController::class, 'getAllStudents'])->name('admin.studentInfo');
 Route::get('/admin/studentInfo/{id}', [AdminController::class, 'showStudentInfo']);
 Route::get('/admin/requests', [DocumentController::class, 'getDocumentRequests'])->name('admin.requests');
+Route::get('/admin/requests/{id}', [AdminController::class, 'showStudentRequest']);
 Route::get('/admin/studentinfo', [AdminController::class, 'index']);
 
