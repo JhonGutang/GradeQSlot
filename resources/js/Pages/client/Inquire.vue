@@ -60,7 +60,7 @@ function closeConfirmationModal() {
     <div>
       <div class="d-flex justify-end pe-10 mb-10">
         <v-btn @click="displayRequestDocumentModal" color="primary" flat
-          >Request Document</v-btn
+          >Request Document </v-btn
         >
       </div>
 
