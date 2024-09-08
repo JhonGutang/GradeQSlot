@@ -31,7 +31,10 @@ defineProps({
       </v-btn>
     </div>
     <v-container v-if="studentProfile">
-      <div class="text-h5">Student Profile</div>
+      <v-container class="d-flex flex-row">
+        <div class="text-h5 me-10">Student Profile</div>
+
+      </v-container>
       <v-table>
         <thead>
           <tr>

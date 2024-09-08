@@ -5,7 +5,7 @@
   <Services />
   <Footer />
 
-  </template>
+  </template> 
   
   <script setup>
   import LandingHeader from '../Components/LandingHeader.vue'

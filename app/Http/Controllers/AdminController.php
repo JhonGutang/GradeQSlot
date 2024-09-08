@@ -46,7 +46,6 @@ class AdminController extends Controller
 
     public function showStudentRequest($id)
     {
-
         $documentRequests = DocumentRequest::with(['document', 'student'])->findOrFail($id); // Query by student_id
         
         return Inertia::render('admin/ShowStudentRequest', [
