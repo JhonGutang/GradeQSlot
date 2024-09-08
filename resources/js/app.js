@@ -2,6 +2,7 @@ import "./bootstrap";
 import { createApp, h } from 'vue'
 import { createInertiaApp, Head, Link } from '@inertiajs/vue3'
 import { createVuetify } from 'vuetify';
+import { VDateInput } from 'vuetify/labs/VDateInput'
 import 'vuetify/styles'; // Ensure Vuetify styles are imported
 import '@mdi/font/css/materialdesignicons.css';
 import { aliases, mdi } from 'vuetify/iconsets/mdi'; // Import icon sets if needed
@@ -11,7 +12,10 @@ import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist';
 
 
 const vuetify = createVuetify({
-  components,
+  components: {
+    ...components,
+    VDateInput
+  },
   directives,
   icons: {
     defaultSet: 'mdi',

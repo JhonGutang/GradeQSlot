@@ -42,6 +42,7 @@ function showRequest(id) {
 
 
 <template>
+  <Head title="Requests"/>
   <AdminPageLayout>
     <v-container>
       <v-container align="end">

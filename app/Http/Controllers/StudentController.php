@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class StudentController extends Controller
 {
     public function index(){
-        $student = Auth::user();
+        $student = Auth::user()->load('grades.course');
         return Inertia::render('client/Profile', [
             'student' => $student,
         ]);

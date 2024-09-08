@@ -63,8 +63,15 @@ class Student extends Authenticatable
         return $this->hasMany(DocumentRequest::class);
     }
 
+    public function grades()
+    {
+        return $this->hasMany(Grade::class);
+    }
+
     public function document()
     {
         return $this->belongsTo(Document::class);
     }
+
+
 }
