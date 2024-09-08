@@ -11,7 +11,7 @@ class DocumentRequest extends Model
     protected $fillable = [
         'student_id',
         'document_id',
-        'other_document_details',
+        'specify_other_document',
         'request_reason',
         'status'
     ];

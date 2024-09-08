@@ -45,17 +45,17 @@ class DocumentController extends Controller
         $fields = [
             'student_id' => $id,
             'document_id' => $validatedFields['documentType'],
-            'other_document_details' => $validatedFields['otherDocument'],
+            'specify_other_document' => $validatedFields['otherDocument'],
             'request_reason' => $validatedFields['stateReason'],
             'status' => 'pending',
         ];
         
 
         $documentRequest = DocumentRequest::create($fields);
-        return response()->json([
-            'message' => 'Document request submitted successfully!',
-            'data' => $documentRequest
-        ], 201); // 201 status code indicates that a resource was successfully created
+        // return response()->json([
+        //     'message' => 'Document request submitted successfully!',
+        //     'data' => $documentRequest
+        // ], 201); // 201 status code indicates that a resource was successfully created
     
     }
 }

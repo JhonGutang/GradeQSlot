@@ -43,7 +43,6 @@ function showRequest(id) {
 
 <template>
   <AdminPageLayout>
-
     <v-container>
       <v-container align="end">
         <!-- <v-btn color="warning" @click="buttonToggle">
@@ -74,7 +73,13 @@ function showRequest(id) {
               >
                 <td>{{ request.id }}</td>
                 <td>{{ request.student.name }}</td>
-                <td>{{ request.document.name }}</td>
+                <td>
+                  {{
+                    request.document_id === 3
+                      ? request.specify_other_document
+                      : request.document.name
+                  }}
+                </td>
                 <td>{{ formatDate(request.created_at) }}</td>
                 <td>{{ request.status }}</td>
               </tr>
