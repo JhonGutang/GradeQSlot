@@ -65,13 +65,13 @@ function displayModal() {
     <v-dialog v-model="isButtonClicked" width="auto">
       <v-card
         width="700"
-        height="700"
+        height="500"
         prepend-icon="mdi-email"
         title="Responding Requests"
       >
       <v-card-subtitle>
         <div>From Admin</div>
-        <div>To Admin</div>
+        <div>To Student</div>
         <div>Subject: In Response to Requesting {{  documentRequests.document_id === 3
           ? documentRequests.specify_other_document
           : documentRequests.document.name }}</div>
@@ -80,7 +80,7 @@ function displayModal() {
         <v-textarea  counter no-resize>
         </v-textarea>
         <v-container height="100">
-          <div>Select Schedule for Release</div>
+          <div class="mb-2">Select Schedule for Release</div>
           <v-date-input label="Date input"  clearable width="300" prepend-icon="" append-inner-icon="mdi-calendar"></v-date-input>
         </v-container>
       </v-card-text>

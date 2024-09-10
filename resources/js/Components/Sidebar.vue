@@ -46,7 +46,7 @@ const props = defineProps({
             </v-container>
             
           </v-navigation-drawer>
-          <v-main height="100vh">
+          <v-main height="100vh" class="overflow-y-hidden">
             <slot>
 
             </slot>

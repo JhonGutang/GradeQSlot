@@ -1,9 +1,12 @@
 <script setup>
 import { useForm } from "@inertiajs/inertia-vue3";
 import ClientPageLayout from "../../Layouts/ClientPageLayout.vue";
+import DocumentRequestModal from "../../Components/DocumentRequestModal.vue";
 import { ref } from "vue";
 
 const isRequesting = ref(false);
+const documentId = ref("");
+const isClicked = ref(false);
 const isConfirmationVisible = ref(false);
 
 defineProps({
@@ -45,8 +48,16 @@ function displayRequestDocumentModal() {
   isRequesting.value = true;
 }
 
+function previewRequest(id) {
+  documentId.value = id;
+  isClicked.value = true;
+  console.log(isClicked.value);
+}
+
 function closeRequestDocumentModal() {
   isRequesting.value = false;
+  window.location.reload(true);
+  
 }
 
 function closeConfirmationModal() {
@@ -59,9 +70,9 @@ function closeConfirmationModal() {
   <ClientPageLayout>
     <div>
       <div class="d-flex justify-end pe-10 mb-10">
-        <v-btn @click="displayRequestDocumentModal" color="primary" flat
-          > <v-icon>mdi-plus</v-icon> Request Document </v-btn
-        >
+        <v-btn @click="displayRequestDocumentModal" color="primary" flat>
+          <v-icon>mdi-plus</v-icon> Request Document
+        </v-btn>
       </div>
 
       <v-dialog
@@ -138,7 +149,7 @@ function closeConfirmationModal() {
         transition="dialog-top-transition"
         max-width="500"
       >
-        <v-sheet>
+        <v-sheet height="250" class="d-flex flex-col align-center justify-center">
           <div class="text-h5 font-weight-bold text-center mb-5">
             Request Submitted
           </div>
@@ -148,20 +159,20 @@ function closeConfirmationModal() {
           </div>
 
           <div class="text-center">
-            <v-btn @click="closeConfirmationModal" color="primary">Close</v-btn>
+            <v-btn @click="closeConfirmationModal" color="primary">Okay</v-btn>
           </div>
         </v-sheet>
       </v-dialog>
     </div>
 
-    <v-container>
+    <v-container width="1000">
       <v-table class="border border-indigo-400 rounded">
         <thead>
           <tr class="bg-indigo">
             <th class="text-left">Document Id</th>
             <th class="text-left">Document Name</th>
-            <th class="text-left">Request Reason</th>
             <th class="text-left">Status</th>
+            <th class="text-left" width="200"></th>
           </tr>
         </thead>
         <tbody>
@@ -177,12 +188,23 @@ function closeConfirmationModal() {
                   : documentRequest.document.name
               }}
             </td>
-            <td>{{ documentRequest.request_reason }}</td>
             <td>{{ documentRequest.status }}</td>
+            <td>
+              <v-btn color="indigo" @click="previewRequest(documentRequest.id)">
+                <v-icon class="me-2"> mdi-file-eye </v-icon> Preview</v-btn
+              >
+            </td>
           </tr>
         </tbody>
       </v-table>
     </v-container>
+
+    <DocumentRequestModal
+      :isClicked="isClicked"
+      :documentId="documentId"
+      :document="student"
+      @close="isClicked = false"
+    />
   </ClientPageLayout>
 </template>
 
