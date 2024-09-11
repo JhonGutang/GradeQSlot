@@ -28,9 +28,9 @@ class AdminController extends Controller
         $studentGrades = Grade::where('student_id', $student->id)
         ->with('course')
         ->get()
-        ->keyBy('course_id'); // Key by course_id for easy lookup
+        ->keyBy('course_id'); 
 
-    // Attach grades to courses, setting null if no grade exists
+  
     $coursesWithGrades = $courses->map(function ($course) use ($studentGrades) {
         return [
             'course' => $course,

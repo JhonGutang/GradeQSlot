@@ -3,7 +3,7 @@ import { computed, ref } from 'vue';
 import Searchbar from '../Components/Searchbar.vue';
 
 const selectedYear = ref(null);
-
+const dialog = ref(false)
 // Props definition
 const props = defineProps({
   prospectus: {
@@ -63,6 +63,7 @@ const handleSearch = (query) => {
           <th class="text-left">Code</th>
           <th class="text-left">Name</th>
           <th class="text-center">Grade</th>
+          <th class="text-center">Action</th>
         </tr>
       </thead>
       <tbody>
@@ -73,8 +74,58 @@ const handleSearch = (query) => {
           <td>{{ courseWithGrade.course.course_code }}</td>
           <td>{{ courseWithGrade.course.course_name }}</td>
           <td :class="courseWithGrade.grade ? 'text-black': 'text-red'" class="text-center">{{ courseWithGrade.grade || "Missing" }}</td>
+          <td class="d-flex justify-center align-center"><v-btn  @click="dialog = true">
+          <v-icon>mdi-pencil</v-icon>  
+          </v-btn></td>
         </tr>
       </tbody>
     </v-table>
   </v-container>
+
+  <div class="text-center pa-4">
+    <v-btn @click="dialog = true">
+      Open Dialog
+    </v-btn>
+
+    <v-dialog
+      v-model="dialog"
+      width="auto"
+    >
+      <v-card
+        width="700"
+        height="400"
+        class="pa-5 rounded-lg"
+        
+      >
+      <v-card-title class="d-flex justify-between">
+        Editing Grades
+        <v-btn class="bg-error" @click="dialog = false">
+          <v-icon>mdi-close</v-icon>
+        </v-btn>
+      </v-card-title>
+      <v-card-text>
+        <v-container class="d-flex" width="500">
+          <div class="me-8">Course: </div>
+          <div class="">Course name Here</div>
+        </v-container>
+        <v-container class="d-flex align-center" height="80" width="500">
+          <div class="me-8">Add Current Grade: </div>
+          <v-text-field></v-text-field>
+        </v-container>
+        <v-container class="d-flex align-center" height="80" width="500">
+          <div class="me-8 ms-5">Add New Grade: </div>
+          <v-text-field></v-text-field>
+        </v-container>
+      </v-card-text>
+        <template v-slot:actions>
+          <v-btn
+          width="100"
+            class="ms-auto bg-success"
+            text="Submit"
+            @click="dialog = false"
+          ></v-btn>
+        </template>
+      </v-card>
+    </v-dialog>
+  </div>
 </template>

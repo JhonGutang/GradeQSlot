@@ -38,7 +38,8 @@ const handleSearch = (query) => {
           <tr class="bg-indigo">
             <th class="text-left" width="200">Course Code</th>
             <th class="text-left">Course Name</th>
-            <th class="text-left">Year Available</th>
+            <th class="text-left">Grades</th>
+
           </tr>
         </thead>
         <tbody>

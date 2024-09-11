@@ -56,12 +56,12 @@ function previewRequest(id) {
 
 function closeRequestDocumentModal() {
   isRequesting.value = false;
-  window.location.reload(true);
   
 }
 
 function closeConfirmationModal() {
   isConfirmationVisible.value = false;
+  location.reload();
 }
 </script>
 
@@ -181,7 +181,7 @@ function closeConfirmationModal() {
             :key="documentRequest.id"
           >
             <td>{{ documentRequest.id }}</td>
-            <td>
+            <td class="text-capitalize">
               {{
                 documentRequest.document_id === 3
                   ? documentRequest.specify_other_document
