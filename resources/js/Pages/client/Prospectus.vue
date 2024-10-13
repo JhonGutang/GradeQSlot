@@ -43,27 +43,16 @@ const handleSearch = (query) => {
           </tr>
         </thead>
         <tbody>
-          <tr v-for="course in filteredCourses" :key="course.id">
-            <td>{{ course.course_code }}</td>
-            <td>{{ course.course_name }}</td>
-            <td>{{ course.year_level }}</td>
+          <tr>
+            <td>hello</td>
+          </tr>
+          <tr>
+            <td>hi</td>
           </tr>
         </tbody>
       </v-table>
 
-      <div class="flex justify-center mt-4">
-        <Link
-          v-for="link in props.courses.links"
-          :key="link.label"
-          :href="link.url"
-          v-html="link.label"
-          :class="{
-            'bg-indigo-500 text-white': link.active,
-            'border-gray-300 text-gray-700': !link.active
-          }"
-          class="border p-2 mx-1 rounded"
-        />
-      </div>
+
     </v-container>
   </ClientPageLayout>
 </template>
