@@ -15,12 +15,28 @@ const routes = [
         component: () => import("./Pages/auth/REgister.vue"),
     },
     {
-        path: "/student/home",
+        path: "/student",
         component: () => import("./Pages/client/Home.vue"),
+        children: [
+            {
+                path: "home", 
+                component: () => import("./Pages/client/Home.vue"),
+            }
+        ],
+        redirect: "/student/home", 
+    },
+    
+    {
+        path: "/student/profile",
+        component: () => import("./Pages/client/Profile.vue"),
     },
     {
         path: "/student/prospectus",
         component: () => import("./Pages/client/Prospectus.vue"),
+    },
+    {
+        path: "/student/inquire",
+        component: () => import("./Pages/client/Inquire.vue"),
     },
 ];
 

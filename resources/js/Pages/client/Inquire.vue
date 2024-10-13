@@ -1,5 +1,4 @@
 <script setup>
-import { useForm } from "@inertiajs/inertia-vue3";
 import ClientPageLayout from "../../Layouts/ClientPageLayout.vue";
 import DocumentRequestModal from "../../Components/DocumentRequestModal.vue";
 import { ref } from "vue";
@@ -9,26 +8,6 @@ const documentId = ref("");
 const isClicked = ref(false);
 const isConfirmationVisible = ref(false);
 
-defineProps({
-  auth: {
-    type: Object,
-    required: true, // if this prop is required
-  },
-  student: {
-    type: Object,
-    required: true,
-  },
-  documents: {
-    type: Object,
-    required: true,
-  },
-});
-
-const form = useForm({
-  documentType: null,
-  otherDocument: null,
-  stateReason: null,
-});
 
 const handleDocumentChange = () => {
   if (form.documentType !== 3) {
@@ -76,12 +55,11 @@ function closeConfirmationModal() {
       </div>
 
       <v-dialog
-        v-model="isRequesting"
         transition="dialog-top-transition"
         max-width="700"
       >
         <v-sheet>
-          <v-form class="border pa-5" @submit.prevent="onSubmit(student.id)">
+          <v-form class="border pa-5">
             <div
               class="text-h5 font-weight-bold text-center d-flex justify-between"
             >
@@ -100,27 +78,14 @@ function closeConfirmationModal() {
               <div class="text-body-2 font-weight-bold me-5">
                 Choose Document
               </div>
-              <v-select
-                v-model="form.documentType"
-                :items="documents"
-                item-title="name"
-                item-value="id"
-                item-text="name"
-                label="Choose Document"
-                outlined
-                @change="handleDocumentChange"
-                :rules="[(v) => !!v || 'Document is required']"
-              ></v-select>
             </div>
 
             <!-- Conditionally display "Other" document input field -->
             <v-container
-              v-if="form.documentType === 3"
               class="d-flex flex-row mb-4"
             >
               <div class="text-body-2 font-weight-bold me-5">Others:</div>
               <v-text-field
-                v-model="form.otherDocument"
                 label="Please specify"
                 outlined
               ></v-text-field>
@@ -129,7 +94,6 @@ function closeConfirmationModal() {
             <div class="d-flex flex-row mb-4">
               <div class="text-body-2 font-weight-bold me-5">State Reason:</div>
               <v-textarea
-                v-model="form.stateReason"
                 label="State your reason"
                 outlined
                 rows="4"
@@ -145,7 +109,6 @@ function closeConfirmationModal() {
 
       <!-- Second Modal: Confirmation or Success Modal -->
       <v-dialog
-        v-model="isConfirmationVisible"
         transition="dialog-top-transition"
         max-width="500"
       >
@@ -176,35 +139,10 @@ function closeConfirmationModal() {
           </tr>
         </thead>
         <tbody>
-          <tr
-            v-for="documentRequest in student.document_requests"
-            :key="documentRequest.id"
-          >
-            <td>{{ documentRequest.id }}</td>
-            <td class="text-capitalize">
-              {{
-                documentRequest.document_id === 3
-                  ? documentRequest.specify_other_document
-                  : documentRequest.document.name
-              }}
-            </td>
-            <td>{{ documentRequest.status }}</td>
-            <td>
-              <v-btn color="indigo" @click="previewRequest(documentRequest.id)">
-                <v-icon class="me-2"> mdi-file-eye </v-icon> Preview</v-btn
-              >
-            </td>
-          </tr>
         </tbody>
       </v-table>
     </v-container>
 
-    <DocumentRequestModal
-      :isClicked="isClicked"
-      :documentId="documentId"
-      :document="student"
-      @close="isClicked = false"
-    />
   </ClientPageLayout>
 </template>
 

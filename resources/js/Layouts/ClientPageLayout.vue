@@ -7,7 +7,7 @@ const navItems = [
   { title: 'Home', route: '/student/home' },
   { title: 'Profile', route: '/student/profile'},
   { title: 'Prospectus', route: '/student/prospectus' },
-  { title: 'Inquire', route: '/student/home'},
+  { title: 'Inquire', route: '/student/inquire'},
 ];
 
 </script>

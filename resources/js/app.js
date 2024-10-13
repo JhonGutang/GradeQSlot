@@ -9,7 +9,9 @@ import '@mdi/font/css/materialdesignicons.css';
 import { aliases, mdi } from 'vuetify/iconsets/mdi';
 import * as components from 'vuetify/components';
 import * as directives from 'vuetify/directives';
+import axios from 'axios';
 
+axios.defaults.baseURL = 'http://127.0.0.1:8000';
 
 const vuetify = createVuetify({
   components: {

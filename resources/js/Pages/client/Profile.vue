@@ -1,6 +1,5 @@
 <script setup>
 import ClientPageLayout from "../../Layouts/ClientPageLayout.vue";
-import { router } from "@inertiajs/vue3";
 
 defineProps({
   student: {
@@ -9,9 +8,7 @@ defineProps({
   },
 });
 
-function showHistory(id) {
-  router.get("requestHistory/" + id);
-}
+
 </script>
 
 <template>
@@ -33,7 +30,7 @@ function showHistory(id) {
                 cover
               ></v-img>
               <v-card-title class="d-flex flex-col justify-center align-center">
-                <div class="text-h6 text-capitalize">{{ student.name }}</div>
+                <div class="text-h6 text-capitalize"> Name </div>
                 <div class="text-body-1">2002041</div>
                 <div class="text-body-1">BSIT-4A</div>
               </v-card-title>
@@ -41,7 +38,7 @@ function showHistory(id) {
             <v-card width="300" height="150">
               <v-card-title>Contact Information</v-card-title>
               <v-card-text>
-                <h1>Email: {{ student.email }}</h1>
+                <h1>Email: </h1>
                 <h1>Phone Number</h1>
               </v-card-text>
             </v-card>
@@ -52,8 +49,8 @@ function showHistory(id) {
                 General Information
               </v-card-title>
               <v-card-text>
-                <div class="text-capitalize mb-2"> Full Name: {{ student.name }}</div>
-                <div class="text-capitalize"> Gender: {{ student.gender }}</div>
+                <div class="text-capitalize mb-2"> Full Name: </div>
+                <div class="text-capitalize"> Gender: </div>
                 
               </v-card-text>
             </v-card>  

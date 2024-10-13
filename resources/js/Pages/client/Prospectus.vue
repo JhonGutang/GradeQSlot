@@ -2,30 +2,38 @@
 <script setup>
 import ClientPageLayout from "../../Layouts/ClientPageLayout.vue";
 import Searchbar from "../../Components/Searchbar.vue";
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 
-const props = defineProps({
-  courses: Object,
-});
 
-// Reactive state for the search query
+const courses = ref([]);
+
+const fetchCourses = async() => {
+  const response = await axios.get('api/student/prospectus')
+  courses.value = response.data.data
+  console.log(courses.value)
+}
+
+
 const searchQuery = ref('');
 
-// Computed property to filter courses based on the search query
+
 const filteredCourses = computed(() => {
   if (!searchQuery.value) {
-    return props.courses.data;
+    return courses.value;
   }
-  return props.courses.data.filter(course =>
+  return courses.value.filter(course =>
     course.course_name.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
     course.course_code.toLowerCase().includes(searchQuery.value.toLowerCase()) 
   );
 });
 
-// Method to handle search event from the Searchbar component
 const handleSearch = (query) => {
   searchQuery.value = query;
 };
+
+onMounted(()=> {
+  fetchCourses()
+})
 </script>
 
 <template>
@@ -43,16 +51,12 @@ const handleSearch = (query) => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>hello</td>
-          </tr>
-          <tr>
-            <td>hi</td>
+          <tr v-for="(course, index) in filteredCourses" :key="index">
+            <td>{{course.course_code}}</td>
+            <td>{{course.course_name}}</td>
           </tr>
         </tbody>
       </v-table>
-
-
     </v-container>
   </ClientPageLayout>
 </template>
