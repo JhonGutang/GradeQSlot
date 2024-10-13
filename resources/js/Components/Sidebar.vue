@@ -24,7 +24,7 @@ const props = defineProps({
                 <v-row class="d-flex flex-col">
                     <v-sheet class="bg-transparent pt-5" height="500">
                         <v-col v-for="item in props.navItems" :key="item.title">
-                          <v-btn class="text-primary" :to="item.route">{{item.title}}</v-btn>
+                          <v-btn class="justify-start" :to="item.route" color="transparent" width="140px" flat>{{item.title}}</v-btn>
                         </v-col>
                       </v-sheet>
                 </v-row>
