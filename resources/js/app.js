@@ -1,15 +1,17 @@
 import "./bootstrap";
 import { createApp, h } from 'vue'
-import { createInertiaApp, Head, Link } from '@inertiajs/vue3'
+import App from './App.vue';
+import router from "./router";
 import { createVuetify } from 'vuetify';
 import { VDateInput } from 'vuetify/labs/VDateInput'
-import 'vuetify/styles'; // Ensure Vuetify styles are imported
+import 'vuetify/styles';
 import '@mdi/font/css/materialdesignicons.css';
-import { aliases, mdi } from 'vuetify/iconsets/mdi'; // Import icon sets if needed
+import { aliases, mdi } from 'vuetify/iconsets/mdi';
 import * as components from 'vuetify/components';
 import * as directives from 'vuetify/directives';
-import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist';
+import axios from 'axios';
 
+axios.defaults.baseURL = 'http://127.0.0.1:8000';
 
 const vuetify = createVuetify({
   components: {
@@ -26,19 +28,11 @@ const vuetify = createVuetify({
   },
 });
 
-createInertiaApp({
-  title: (title) => `${title} | GradeQSlot`,
-  resolve: name => {
-    const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
-    return pages[`./Pages/${name}.vue`]
-  },
-  setup({ el, App, props, plugin }) {
-    createApp({ render: () => h(App, props) })
-      .use(ZiggyVue)
-      .use(vuetify)
-      .use(plugin)
-      .component('Head', Head)
-      .component('Link', Link)
-      .mount(el)
-  },
-})
+
+const app = createApp({
+  render: () => h(App), 
+});
+app.use(router);
+app.use(vuetify);
+
+app.mount('#app');

@@ -10,9 +10,6 @@ class CoursesController extends Controller
 {
     public function index(Request $request){
         $courses = Course::paginate(8);
-
-        return Inertia::render('client/Prospectus', [
-            'courses' => $courses,
-        ]);
+        return response()->json($courses);
     }
 }

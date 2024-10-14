@@ -24,16 +24,14 @@ const props = defineProps({
                 <v-row class="d-flex flex-col">
                     <v-sheet class="bg-transparent pt-5" height="500">
                         <v-col v-for="item in props.navItems" :key="item.title">
-                          <Link :href="item.route">
-                            <v-list-item link rounded :title="item.title"></v-list-item>
-                          </Link>
+                          <v-btn class="text-primary" :to="item.route">{{item.title}}</v-btn>
                         </v-col>
                       </v-sheet>
                 </v-row>
 
                 <v-row class="d-flex flex-col">
                     <v-col>
-                        <Link :href="route('logout')" method="post" as="button">
+                        <Link method="post" as="button">
                             <v-list-item link class="text-h6">Logout</v-list-item>
                         </Link>
                     </v-col>

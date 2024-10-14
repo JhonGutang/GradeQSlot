@@ -25,7 +25,7 @@
             </div>
 
             <!-- Login Button -->
-             <Link :href="route('login')">
+             <Link>
                 <button class="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-gray-50 rounded-xl flex items-center gap-2 absolute right-0 mr-5">
                     <!-- Heroicons - Login Solid -->
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">

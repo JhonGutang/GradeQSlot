@@ -1,43 +1,24 @@
 
 <script setup>
-import { Link, useForm } from "@inertiajs/vue3";
 import AuthLayout from "../../Layouts/AuthRegistrationLayout.vue";
-
-const form = useForm({
-    id: null,
-    password: null,
-})
-
-
-const onLogin = () => {
-  form.post('/auth/login')
-  onError: () => form.reset('password')
-} 
-
 </script>
 
  <template>
   <AuthLayout title="Login">
-    <v-form @submit.prevent="onLogin">
+    <v-form>
       <v-text-field
-      v-model="form.id"
         label="Student Id"
         type="number"
         color="primary"
         class="mb-2"
         hide-spin-buttons
-        :error="!!form.errors.id"
-        :error-messages="form.errors.id ? [form.errors.id] : []"
       ></v-text-field>
 
       <v-text-field
-      v-model="form.password"
         label="Password"
         type="password"
         color="primary"
         class="mb-2"
-         :error="!!form.errors.password"
-        :error-messages="form.errors.password ? [form.errors.password] : []"
       ></v-text-field>
       <v-sheet align="end" class="mb-10">
         <Link
@@ -53,13 +34,9 @@ const onLogin = () => {
         type="submit"
         >Login</v-btn
       >
-      <div class="d-flex text-center justify-center mt-2">
-        <h5 class="me-1 text-body-2">Don't have Any Account?</h5>
-        <Link
-          :href="route('register')"
-          class="text-decoration-none font-weight-bold text-body-2 text-light-blue-darken-4"
-          >Register Now</Link
-        >
+      <div class="d-flex text-center justify-center mt-2 align-center">
+        <h5 class="me-1 text-body-2">Already Have An Account?</h5>
+        <v-btn height="30px" width="90px" class="text-body-2" to="/register" flat>Register Now</v-btn>
       </div>
     </v-form>
   </AuthLayout>

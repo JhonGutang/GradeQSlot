@@ -4,10 +4,10 @@ import Header from '../Components/Header.vue';
 
 
 const navItems = [
-  { title: 'Home', route: route('client.home') },
-  { title: 'Profile', route: route('client.profile') },
-  { title: 'Prospectus', route: route('client.prospectus') },
-  { title: 'Inquire', route: route('client.inquire') },
+  { title: 'Home', route: '/student/home' },
+  { title: 'Profile', route: '/student/profile'},
+  { title: 'Prospectus', route: '/student/prospectus' },
+  { title: 'Inquire', route: '/student/inquire'},
 ];
 
 </script>
