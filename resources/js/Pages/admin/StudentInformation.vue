@@ -10,7 +10,6 @@ const searchQuery = ref("");
 const fetchStudents = async () => {
   const response = await axios.get("/api/students");
   students.value = response.data.data
-  console.log(students.value)
 };
 
 
