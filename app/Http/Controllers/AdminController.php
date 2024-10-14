@@ -11,13 +11,11 @@ use Inertia\Inertia;
 
 class AdminController extends Controller
 {
-    public function getAllStudents(Request $request)
+    public function getAllStudents()
     {
         $students = Student::paginate(8);
 
-        return Inertia::render('admin/StudentInformation', [
-            'students' => $students,
-        ]);
+        return response()->json($students);
     }
 
     public function showStudentInfo($id)
