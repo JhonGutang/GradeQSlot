@@ -30,9 +30,7 @@ class DocumentController extends Controller
 
     public function getDocuments(){
         $documents=Document::all();
-        return Inertia::render('client/Inquire', [
-            'documents' => $documents,
-        ]);
+        return response()->json($documents);
     }
 
     public function requestingDocument(Request $request, $id){

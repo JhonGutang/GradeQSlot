@@ -19,13 +19,13 @@ const routes = [
         component: () => import("./Pages/client/Home.vue"),
         children: [
             {
-                path: "home", 
+                path: "home",
                 component: () => import("./Pages/client/Home.vue"),
-            }
+            },
         ],
-        redirect: "/student/home", 
+        redirect: "/student/home",
     },
-    
+
     {
         path: "/student/profile",
         component: () => import("./Pages/client/Profile.vue"),
@@ -37,6 +37,18 @@ const routes = [
     {
         path: "/student/inquire",
         component: () => import("./Pages/client/Inquire.vue"),
+    },
+    {
+        path: "/admin",
+        component: () => import("./Pages/admin/Home.vue"),
+    },
+    {
+        path: "/admin/studentInformation",
+        component: () => import("./Pages/admin/StudentInformation.vue"),
+    },
+    {
+        path: "/admin/request",
+        component: () => import("./Pages/admin/Requests.vue"),
     },
 ];
 

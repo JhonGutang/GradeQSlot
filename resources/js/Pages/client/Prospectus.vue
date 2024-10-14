@@ -8,9 +8,8 @@ import { ref, computed, onMounted } from 'vue';
 const courses = ref([]);
 
 const fetchCourses = async() => {
-  const response = await axios.get('api/student/prospectus')
+  const response = await axios.get('api/prospectus')
   courses.value = response.data.data
-  console.log(courses.value)
 }
 
 
