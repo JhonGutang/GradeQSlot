@@ -38,6 +38,10 @@ const routes = [
         path: "/student/inquire",
         component: () => import("./Pages/client/Inquire.vue"),
     },
+    {
+        path: "/admin",
+        component: () => import("./Pages/admin/Home.vue"),
+    }
 ];
 
 export default createRouter({
