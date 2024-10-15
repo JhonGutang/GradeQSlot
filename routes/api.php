@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\DocumentController;
 use Illuminate\Http\Request;
@@ -12,3 +13,4 @@ Route::get('/user', function (Request $request) {
 
 Route::get('/prospectus', [CoursesController::class, 'index']);
 Route::get('/documents', [DocumentController::class, 'getDocuments']);
+Route::get('/students', [AdminController::class, 'getAllStudents']);
