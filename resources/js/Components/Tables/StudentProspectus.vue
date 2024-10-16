@@ -1,6 +1,6 @@
 <script setup>
 import { computed, ref } from 'vue';
-import Searchbar from '../Components/Searchbar.vue';
+import Searchbar from '../Searchbar.vue';
 
 const selectedYear = ref(null);
 const dialog = ref(false)

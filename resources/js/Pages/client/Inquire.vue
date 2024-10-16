@@ -1,6 +1,6 @@
 <script setup>
 import ClientPageLayout from "../../Layouts/ClientPageLayout.vue";
-import DocumentRequestModal from "../../Components/DocumentRequestModal.vue";
+import DocumentRequestModal from "../../Components/Modals/DocumentRequestModal.vue";
 import { onMounted, ref } from "vue";
 
 const documents = ref([]);

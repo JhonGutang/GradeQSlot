@@ -1,6 +1,6 @@
 <script setup>
 
-import RegistrationLayout from "../../Layouts/AuthRegistrationLayout.vue";
+import RegistrationLayout from "../../Layouts/AuthLayout.vue";
 
 
 </script>
