@@ -1,6 +1,6 @@
 <script setup>
 import AdminPageLayout from "../../Layouts/AdminPageLayout.vue";
-import StudentProspectus from "../../Components/StudentProspectus.vue";
+import StudentProspectus from "./StudentProspectus.vue";
 import { ref } from "vue";
 
 const studentProfile = ref(true);

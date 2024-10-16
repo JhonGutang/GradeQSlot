@@ -8,11 +8,11 @@
   </template> 
   
   <script setup>
-  import LandingHeader from '../Components/LandingHeader.vue'
-  import Hero from '../Components/Hero.vue'
-  import About from '../Components/About.vue'
-  import Footer from '../Components/Footer.vue'
-  import Services from '../Components/Services.vue'
+  import LandingHeader from '../Components/Landing Page/LandingHeader.vue'
+  import Hero from '../Components/Landing Page/Hero.vue'
+  import About from '../Components/Landing Page/About.vue'
+  import Footer from '../Components/Landing Page/Footer.vue'
+  import Services from '../Components/Landing Page/Services.vue'
   </script>
   
   <style scoped>
