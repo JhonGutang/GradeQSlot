@@ -40,8 +40,12 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'student' => [ // Add this section for student authentication
+        'student' => [
             'driver' => 'session',
+            'provider' => 'students',
+        ],
+        'api' => [
+            'driver' => 'sanctum',
             'provider' => 'students',
         ],
     ],
