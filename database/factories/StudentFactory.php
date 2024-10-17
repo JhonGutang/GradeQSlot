@@ -13,11 +13,16 @@ class StudentFactory extends Factory
     public function definition(): array
     {
         return [
-            'id' => $this->faker->unique()->numberBetween(100, 999),
-            'name' => $this->faker->name,
+            'id' => $this->faker->unique()->numberBetween(1, 1000),
+            'first_name' => $this->faker->firstName,
+            'last_name' => $this->faker->lastName,
+            'middle_name' => $this->faker->optional()->firstName, 
             'email' => $this->faker->unique()->safeEmail,
-            'gender' => $this->faker->randomElement(['Male', 'Female']),
-            'password' => Hash::make('password123'), 
+            'age' => $this->faker->numberBetween(18, 80),
+            'gender' => $this->faker->randomElement(['Male', 'Female']), 
+            'birth_date' => $this->faker->date('Y-m-d', '2006-01-01'),
+            'contact_number' => $this->faker->phoneNumber,
+            'password' => bcrypt('password'), 
         ];
     }
 }

@@ -14,9 +14,14 @@ return new class extends Migration {
     {
         Schema::create('students', function (Blueprint $table) {
             $table->bigInteger('id')->unsigned()->primary(); // Use string if storing like '12203091'
-            $table->string('name');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('middle_name')->nullable();
             $table->string('email')->unique();
+            $table->integer('age');
             $table->string('gender');
+            $table->dateTime('birth_date');
+            $table->string('contact_number');
             $table->string('password');
             $table->timestamps();
         });
