@@ -14,16 +14,12 @@ import AuthButtonWithLink from "../../Components/AuthButtonWithLink.vue";
         <PasswordToggle passwordLabel="Password"/>
         <div class="text-right">Forgot Password</div>
       </div>
-      <AuthButtonWithLink buttonText="Login" buttonLink="/student" authMessage="Don't Have An Account?" authLink="/register" :authTextWidth="105" authText="Register Now"/>
+      <AuthButtonWithLink buttonText="Login" authMessage="Don't Have An Account?" authLink="/register" :authTextWidth="105" authText="Register Now"/>
     </v-form>
   </AuthLayout>
 </template>
 
 
 <style>
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+
 </style>
