@@ -12,7 +12,7 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 
-Route::get('/register', [AuthController::class, 'registerStudent']);
+Route::post('/register', [AuthController::class, 'registerStudent']);
 Route::get('/prospectus', [CoursesController::class, 'index']);
 Route::get('/documents', [DocumentController::class, 'getDocuments']);
 Route::get('/students', [AdminController::class, 'getAllStudents']);

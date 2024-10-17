@@ -20,7 +20,7 @@ class StudentFactory extends Factory
             'email' => $this->faker->unique()->safeEmail,
             'age' => $this->faker->numberBetween(18, 80),
             'gender' => $this->faker->randomElement(['Male', 'Female']), 
-            'birth_date' => $this->faker->date('Y-m-d', '2006-01-01'),
+            'birthdate' => $this->faker->date('Y-m-d', '2006-01-01'),
             'contact_number' => $this->faker->phoneNumber,
             'password' => bcrypt('password'), 
         ];
