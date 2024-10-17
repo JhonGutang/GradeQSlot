@@ -37,10 +37,6 @@ const register = async() => {
 }
 </script>
 
-
-
-
-
 <template>
   <v-container class="bg-primary d-flex justify-center">
     <v-alert v-if="Object.keys(errorMessages).length > 0" type="error" dismissible class="mb-3 position-absolute mx-auto">

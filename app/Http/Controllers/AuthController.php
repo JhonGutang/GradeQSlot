@@ -69,7 +69,24 @@ class AuthController extends Controller
 
   public function loginStudent(Request $request)
   {
-
+      $validatedData = $request->validate([
+          'id' => 'required|integer',
+          'password' => 'required|string',
+      ]);
+  
+      if (Auth::guard('student')->attempt(['id' => $validatedData['id'], 'password' => $validatedData['password']])) {
+          $student = Student::find($validatedData['id']);
+          $token = $student->createToken('Student Token')->plainTextToken;
+          return response()->json([
+              'message' => 'Login successful',
+              'student' => $student,
+              'token' => $token,
+          ], 200);
+      }
+  
+      return response()->json([
+          'message' => 'Invalid credentials',
+      ], 401);
   }
 
 
