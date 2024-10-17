@@ -4,7 +4,7 @@ const routes = [
     {
         path: "/",
         component: () => import("./Pages/Homes.vue"),
-        meta: { title: 'Home | GradeQSlot' }, 
+        meta: { title: 'GradeQSlot' }, 
     },
     {
         path: "/login",
@@ -19,7 +19,7 @@ const routes = [
     {
         path: "/student",
         component: () => import("./Pages/client/Home.vue"),
-        meta: { title: 'Dashboard | GradeQSlot' }, 
+        meta: { title: 'Home | GradeQSlot' }, 
     },
     {
         path: "/student/profile",
@@ -39,7 +39,7 @@ const routes = [
     {
         path: "/admin",
         component: () => import("./Pages/admin/Home.vue"),
-        meta: { title: 'Dashboard | GradeQSlot' }, 
+        meta: { title: 'Home | GradeQSlot' }, 
     },
     {
         path: "/admin/studentInfo",
