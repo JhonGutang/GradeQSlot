@@ -13,6 +13,9 @@ Route::get('/user', function (Request $request) {
 
 
 Route::post('/register', [AuthController::class, 'registerStudent']);
+Route::post('/login', [AuthController::class, 'loginStudent']);
+
+
 Route::get('/prospectus', [CoursesController::class, 'index']);
 Route::get('/documents', [DocumentController::class, 'getDocuments']);
 Route::get('/students', [AdminController::class, 'getAllStudents']);
