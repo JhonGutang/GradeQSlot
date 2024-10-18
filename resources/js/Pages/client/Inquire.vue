@@ -1,5 +1,5 @@
 <script setup>
-import ClientPageLayout from "../../Layouts/ClientPageLayout.vue";
+import ClientPageLayout from "../../Layouts/StudentPageLayout.vue";
 import DocumentRequestModal from "../../Components/Modals/DocumentRequestModal.vue";
 import { onMounted, ref } from "vue";
 
