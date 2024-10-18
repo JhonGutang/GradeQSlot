@@ -1,6 +1,6 @@
 <!-- Main Component -->
 <script setup>
-import ClientPageLayout from "../../Layouts/ClientPageLayout.vue";
+import ClientPageLayout from "../../Layouts/StudentPageLayout.vue";
 import Searchbar from "../../Components/Searchbar.vue";
 import { ref, computed, onMounted } from 'vue';
 

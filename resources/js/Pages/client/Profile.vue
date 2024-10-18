@@ -1,5 +1,5 @@
 <script setup>
-import ClientPageLayout from "../../Layouts/ClientPageLayout.vue";
+import ClientPageLayout from "../../Layouts/StudentPageLayout.vue";
 
 defineProps({
   student: {

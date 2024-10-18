@@ -12,11 +12,13 @@ const studentInfo = ref({
   password: '',
 })
 
-const login = async() => {
-  try{  
+const login = async () => {
+  try {
     const response = await axios.post('api/login', studentInfo.value);
-    router.push('/student')
-  }catch(error){
+    localStorage.setItem('auth_token', response.data.token);
+    localStorage.setItem('user', JSON.stringify(response.data.user));
+    router.push('/student');
+  } catch (error) {
     console.error(error)
   }
 }
@@ -28,15 +30,14 @@ const login = async() => {
     <v-form @submit.prevent="login">
       <div class="my-10">
         <v-text-field v-model="studentInfo.id" variant="outlined" label="Student Id" type="number"> </v-text-field>
-        <PasswordToggle v-model="studentInfo.password" passwordLabel="Password"/>
+        <PasswordToggle v-model="studentInfo.password" passwordLabel="Password" />
         <div class="text-right">Forgot Password</div>
       </div>
-      <AuthButtonWithLink buttonText="Login" authMessage="Don't Have An Account?" authLink="/register" :authTextWidth="105" authText="Register Now"/>
+      <AuthButtonWithLink buttonText="Login" authMessage="Don't Have An Account?" authLink="/register"
+        :authTextWidth="105" authText="Register Now" />
     </v-form>
   </AuthLayout>
 </template>
 
 
-<style>
-
-</style>
+<style></style>
